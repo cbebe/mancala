@@ -1,0 +1,19 @@
+{
+  "name": "chonka",
+  "version": "1.0.0",
+  "description": "Play a mancala game",
+  "main": "index.js",
+  "scripts": {
+    "build": "node move.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbebe/cbebe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbebe/cbebe/issues"
+  },
+  "homepage": "https://github.com/cbebe/cbebe#readme"
+}
