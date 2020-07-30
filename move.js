@@ -1,8 +1,9 @@
 const jsonfile = require("jsonfile");
 const file = "./board.json";
 
+const args = process.argv.slice(2);
+
 function makeMove(board) {
-  board.left[1] -= 1;
   return board;
 }
 
