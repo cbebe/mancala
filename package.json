@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cbebe/chonka/issues"
   },
-  "homepage": "https://github.com/cbebe/chonka#readme"
+  "homepage": "https://github.com/cbebe/chonka#readme",
+  "dependencies": {
+    "jsonfile": "^6.0.1"
+  }
 }
