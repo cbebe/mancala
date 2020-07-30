@@ -1,0 +1,19 @@
+{
+  "name": "chonka",
+  "version": "0.1.0-beta",
+  "description": "Play Sungka (Mancala)",
+  "main": "index.js",
+  "scripts": {
+    "build": "node move.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbebe/chonka.git"
+  },
+  "author": "Charles Ancheta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbebe/chonka/issues"
+  },
+  "homepage": "https://github.com/cbebe/chonka#readme"
+}
