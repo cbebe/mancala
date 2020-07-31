@@ -12,7 +12,7 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v2
       - run: |
-        git pull origin master
+          git pull origin master
       - name: Make a move
         uses: ./move
         id: move
@@ -21,9 +21,9 @@ jobs:
           user: ${{ github.event.issue.user.login }}
       - name: Commit files
         run: |
-        git config --local user.email "action@github.com" 
-        git commit -m user.name "Github Action"
-        git commit -m "Update board" -a
+          git config --local user.email "action@github.com" 
+          git commit -m user.name "Github Action"
+          git commit -m "Update board" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
