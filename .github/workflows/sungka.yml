@@ -10,8 +10,17 @@ jobs:
     if: startsWith(github.event.issue.title, 'sungka|')
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - run: |
+        git pull origin master
+      - uses: ./move
+        id: move
         with:
-          node-version: "12.x"
-      - run: npm install
-      - run: npm run build --if-present
+          title: ${{ github.event.issue.title }}
+          user: ${{ github.event.issue.user.login }}
+      - run: |
+        git config --local user.email "action@github.com" 
+        git commit -m user.name "Github Action"
+        git commit -m "Update board" -a
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
