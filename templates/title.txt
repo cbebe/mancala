@@ -1,0 +1,5 @@
+# Charles's community Mancala game
+
+## WORK IN PROGRESS
+
+This is Sungka, a Philippine mancala game. Click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).
