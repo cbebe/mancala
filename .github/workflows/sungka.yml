@@ -13,7 +13,8 @@ jobs:
         uses: actions/checkout@v2
       - run: |
         git pull origin master
-      - uses: ./move
+      - name: Make a move
+        uses: ./move
         id: move
         with:
           title: ${{ github.event.issue.title }}
