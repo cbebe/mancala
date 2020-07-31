@@ -3,9 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th>Top</th>
+      <th>Bottom</th>
       <th colspan=7>Board</th>
-      <th> Bottom</th>
+      <th>Top</th>
     </tr>
   </thead>
   <tbody>
