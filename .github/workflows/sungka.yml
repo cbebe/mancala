@@ -14,9 +14,9 @@ jobs:
       - run: |
           git pull origin master
       - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
       - run: npm install
       - name: Make a move
         uses: ./move
