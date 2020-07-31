@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.event.issue.title, 'sungka|')
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out repo
+        uses: actions/checkout@v2
       - run: |
         git pull origin master
       - uses: ./move
@@ -17,10 +18,15 @@ jobs:
         with:
           title: ${{ github.event.issue.title }}
           user: ${{ github.event.issue.user.login }}
-      - run: |
+      - name: Commit files
+        run: |
         git config --local user.email "action@github.com" 
         git commit -m user.name "Github Action"
         git commit -m "Update board" -a
-      - uses: ad-m/github-push-action@master
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+      - uses: peter-evans/close-issue@v1
+        with:
+          issue-number: ${{ github.event.issue.number }}
