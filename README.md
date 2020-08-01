@@ -4,7 +4,7 @@
 
 This is Sungka, a Philippine mancala game. Click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).
 
-It's bottom side's turn! Choose a hole to move.
+It's top side's turn! Choose a hole to move.
 
 <table>
 <thead>
@@ -17,23 +17,23 @@ It's bottom side's turn! Choose a hole to move.
 <tbody>
 <tr>
 <td rowspan=2>14</td>
-<td>6</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>4</td>
-<td>0</td>
-<td>4</td>
-<td rowspan=2>0</td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C0&body=Just+push+%27Submit+new+issue%27.">1</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C1&body=Just+push+%27Submit+new+issue%27.">5</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C2&body=Just+push+%27Submit+new+issue%27.">6</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C3&body=Just+push+%27Submit+new+issue%27.">5</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C4&body=Just+push+%27Submit+new+issue%27.">0</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C5&body=Just+push+%27Submit+new+issue%27.">5</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C6&body=Just+push+%27Submit+new+issue%27.">3</a></td>
+<td rowspan=2>6</td>
 </tr>
 <tr>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C0&body=Just+push+%27Submit+new+issue%27.">13</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C1&body=Just+push+%27Submit+new+issue%27.">0</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C2&body=Just+push+%27Submit+new+issue%27.">13</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C3&body=Just+push+%27Submit+new+issue%27.">13</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C4&body=Just+push+%27Submit+new+issue%27.">4</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C5&body=Just+push+%27Submit+new+issue%27.">13</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C6&body=Just+push+%27Submit+new+issue%27.">13</a></td>
+<td>4</td>
+<td>5</td>
+<td>18</td>
+<td>18</td>
+<td>5</td>
+<td>3</td>
+<td>0</td>
 </tr>
 <tbody>
 </table>
