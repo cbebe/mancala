@@ -17,23 +17,23 @@ It's bottom side's turn! Choose a hole to move.
 <tbody>
 <tr>
 <td rowspan=2>21</td>
-<td>0</td>
 <td>2</td>
-<td>15</td>
-<td>15</td>
-<td>2</td>
+<td>4</td>
+<td>17</td>
 <td>1</td>
 <td>0</td>
-<td rowspan=2>8</td>
+<td>3</td>
+<td>2</td>
+<td rowspan=2>11</td>
 </tr>
 <tr>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C0&body=Just+push+%27Submit+new+issue%27.">0</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C0&body=Just+push+%27Submit+new+issue%27.">2</a></td>
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C1&body=Just+push+%27Submit+new+issue%27.">0</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C2&body=Just+push+%27Submit+new+issue%27.">0</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C2&body=Just+push+%27Submit+new+issue%27.">2</a></td>
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C3&body=Just+push+%27Submit+new+issue%27.">0</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C4&body=Just+push+%27Submit+new+issue%27.">14</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C5&body=Just+push+%27Submit+new+issue%27.">6</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C6&body=Just+push+%27Submit+new+issue%27.">14</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C4&body=Just+push+%27Submit+new+issue%27.">16</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C5&body=Just+push+%27Submit+new+issue%27.">0</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C6&body=Just+push+%27Submit+new+issue%27.">17</a></td>
 </tr>
 <tbody>
 </table>
