@@ -29,6 +29,7 @@ const newBoard = {
     top: 0,
     bot: 0,
   },
+  gameOver: false,
 };
 
 jsonfile.readFile(file, (err, obj) => {

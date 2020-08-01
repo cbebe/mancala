@@ -1,9 +1,19 @@
-const createLink = (pos, side, score) => {
+const fs = require("fs");
+
+const createMoveLink = (pos, side, score) => {
   const issue = "https://github.com/cbebe/chonka/issues/new?";
   const title = `title=sungka%7C${side}%7C${pos}&`;
   const body =
     "body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.";
   return `<a href="${issue}${title}${body}">${score}</a>`;
+};
+
+const createNewGameLink = () => {
+  const issue = "https://github.com/cbebe/chonka/issues/new?";
+  const title = `title=sungka%7Cnew&`;
+  const body =
+    "body=Just+push+%27Submit+new+issue%27+without+changing+the+title+to+start+a+new+game.";
+  return `<a href="${issue}${title}${body}">new game</a>`;
 };
 
 const createRow = (board, side) => {
@@ -17,7 +27,7 @@ const createRow = (board, side) => {
       (score, idx) =>
         `<td>${
           isTurn && score
-            ? createLink(reversed ? 6 - idx : idx, side, score)
+            ? createMoveLink(reversed ? 6 - idx : idx, side, score)
             : score
         }</td>\n`
     )
@@ -45,21 +55,27 @@ const writeReadme = board => {
   let readMeText =
     "# Charles's community Mancala game\n" +
     "\n## WORK IN PROGRESS\n\nThis is Sungka, a Philippine mancala game. " +
-    `Click here for the [rules](${rulesLink}).\n`;
+    "ANYONE is free to play! " +
+    `Click here for the [rules](${rulesLink}).\n` +
+    "\nDirection of sowing is counter-clockwise (top goes to the left, bottom goes to the right).\n";
 
-  const turnString = `\nIt's ${
-    board.currentTurn === "top" ? "top" : "bottom"
-  } side's turn! Choose a hole to move.\n\n`;
+  const turnString = board.gameOver
+    ? `The game is over! Click here to start a ${createNewGameLink()}.`
+    : `\nIt's ${
+        board.currentTurn === "top" ? "top" : "bottom"
+      } side's turn! Choose a hole to move.\n\n`;
 
   readMeText += turnString + createTable(board);
 
   return readMeText;
 };
+
 const board = {
   currentTurn: "top",
   top: [0, 1, 2, 3, 4, 5, 6],
   bot: [0, 1, 2, 3, 4, 5, 6],
   scores: { top: 0, bot: 0 },
+  gameOver: false,
 };
 
 console.log(writeReadme(board));
