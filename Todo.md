@@ -1,6 +1,7 @@
 # TO-DO
 
 ## Displaying/UI
+
 - Create/Update README
 - Create links for moves
 
@@ -13,4 +14,3 @@
 ## Testing
 
 - Create test suites for game mechanics
-
