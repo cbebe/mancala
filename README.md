@@ -16,24 +16,24 @@ It's top side's turn! Choose a hole to move.
 </thead>
 <tbody>
 <tr>
-<td rowspan=2>1</td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C0&body=Just+push+%27Submit+new+issue%27.">0</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C1&body=Just+push+%27Submit+new+issue%27.">8</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C2&body=Just+push+%27Submit+new+issue%27.">8</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C3&body=Just+push+%27Submit+new+issue%27.">8</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C4&body=Just+push+%27Submit+new+issue%27.">8</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C5&body=Just+push+%27Submit+new+issue%27.">8</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C6&body=Just+push+%27Submit+new+issue%27.">8</a></td>
+<td rowspan=2>8</td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C0&body=Just+push+%27Submit+new+issue%27.">6</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C1&body=Just+push+%27Submit+new+issue%27.">2</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C2&body=Just+push+%27Submit+new+issue%27.">0</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C3&body=Just+push+%27Submit+new+issue%27.">1</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C4&body=Just+push+%27Submit+new+issue%27.">3</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C5&body=Just+push+%27Submit+new+issue%27.">0</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C6&body=Just+push+%27Submit+new+issue%27.">4</a></td>
 <td rowspan=2>0</td>
 </tr>
 <tr>
-<td>7</td>
-<td>7</td>
-<td>7</td>
-<td>7</td>
-<td>7</td>
-<td>7</td>
-<td>7</td>
+<td>13</td>
+<td>5</td>
+<td>13</td>
+<td>13</td>
+<td>4</td>
+<td>13</td>
+<td>13</td>
 </tr>
 <tbody>
 </table>
