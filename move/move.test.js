@@ -1,16 +1,4 @@
-const { makeMove, getOtherSide } = require("./move.js");
-
-function equalBoards(b1, b2) {
-  // i don't wanna compare arrays >:)
-  if (b1.top.toString() !== b2.top.toString()) return false;
-  if (b1.bot.toString() !== b2.bot.toString()) return false;
-
-  if (b1.currentTurn !== b2.currentTurn) return false;
-  if (b1.scores.top !== b2.scores.top) return false;
-  if (b1.scores.bot !== b2.scores.bot) return false;
-
-  return true;
-}
+const { makeMove, equalBoards } = require("./move.js");
 
 test("Avalanche mechanic on own side", () => {
   const input = {
@@ -27,7 +15,6 @@ test("Avalanche mechanic on own side", () => {
     scores: { top: 0, bot: 0 },
   };
   const output = makeMove(input, "top", 0);
-  console.log({ output, expected });
   expect(equalBoards(output, expected)).toBe(true);
 });
 
@@ -46,7 +33,6 @@ test("Avalance mechanic on both sides", () => {
     scores: { top: 3, bot: 0 },
   };
   const output = makeMove(input, "top", 3);
-  console.log({ output, expected });
   expect(equalBoards(output, expected)).toBe(true);
 });
 
@@ -66,6 +52,23 @@ test("Capture mechanic", () => {
   };
 
   const output = makeMove(input, "top", 6);
-  console.log({ output, expected });
+  expect(equalBoards(output, expected)).toBe(true);
+});
+
+test("Extra move", () => {
+  const input = {
+    currentTurn: "top",
+    top: [7, 7, 7, 7, 7, 7, 7],
+    bot: [7, 7, 7, 7, 7, 7, 7],
+    scores: { top: 0, bot: 0 },
+  };
+  const expected = {
+    currentTurn: "top",
+    top: [0, 8, 8, 8, 8, 8, 8],
+    bot: [7, 7, 7, 7, 7, 7, 7],
+    scores: { top: 1, bot: 0 },
+  };
+
+  const output = makeMove(input, "top", 0);
   expect(equalBoards(output, expected)).toBe(true);
 });
