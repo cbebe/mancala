@@ -24,7 +24,7 @@ It's bottom side's turn! Choose a hole to move.
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td rowspan=2>44</td>
+<td rowspan=2>45</td>
 </tr>
 <tr>
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C0&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">1</a></td>
@@ -33,7 +33,7 @@ It's bottom side's turn! Choose a hole to move.
 <td>0</td>
 <td>0</td>
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C5&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">1</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C6&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">1</a></td>
+<td>0</td>
 </tr>
 <tbody>
 </table>
