@@ -16,24 +16,24 @@ It's top side's turn! Choose a hole to move.
 </thead>
 <tbody>
 <tr>
-<td rowspan=2>29</td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C0&body=Just+push+%27Submit+new+issue%27.">1</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C1&body=Just+push+%27Submit+new+issue%27.">2</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C2&body=Just+push+%27Submit+new+issue%27.">8</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C3&body=Just+push+%27Submit+new+issue%27.">2</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C4&body=Just+push+%27Submit+new+issue%27.">1</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C5&body=Just+push+%27Submit+new+issue%27.">14</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C6&body=Just+push+%27Submit+new+issue%27.">0</a></td>
+<td rowspan=2>32</td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C6&body=Just+push+%27Submit+new+issue%27.+Wait+30+seconds+to+check+if+you+have+an+extra+move%82+or+let+someone+else+play.">1</a></td>
+<td>0</td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C4&body=Just+push+%27Submit+new+issue%27.+Wait+30+seconds+to+check+if+you+have+an+extra+move%82+or+let+someone+else+play.">1</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C3&body=Just+push+%27Submit+new+issue%27.+Wait+30+seconds+to+check+if+you+have+an+extra+move%82+or+let+someone+else+play.">4</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C2&body=Just+push+%27Submit+new+issue%27.+Wait+30+seconds+to+check+if+you+have+an+extra+move%82+or+let+someone+else+play.">10</a></td>
+<td>0</td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C0&body=Just+push+%27Submit+new+issue%27.+Wait+30+seconds+to+check+if+you+have+an+extra+move%82+or+let+someone+else+play.">3</a></td>
 <td rowspan=2>17</td>
 </tr>
 <tr>
 <td>0</td>
-<td>10</td>
-<td>4</td>
-<td>3</td>
+<td>12</td>
 <td>0</td>
-<td>1</td>
-<td>6</td>
+<td>5</td>
+<td>2</td>
+<td>3</td>
+<td>8</td>
 </tr>
 <tbody>
 </table>
