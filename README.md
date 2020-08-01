@@ -24,7 +24,7 @@ It's bottom side's turn! Choose a hole to move.
 <td>2</td>
 <td>0</td>
 <td>1</td>
-<td rowspan=2>48</td>
+<td rowspan=2>49</td>
 </tr>
 <tr>
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C0&body=Just+push+%27Submit+new+issue%27.">0</a></td>
@@ -33,7 +33,7 @@ It's bottom side's turn! Choose a hole to move.
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C3&body=Just+push+%27Submit+new+issue%27.">2</a></td>
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C4&body=Just+push+%27Submit+new+issue%27.">0</a></td>
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C5&body=Just+push+%27Submit+new+issue%27.">1</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C6&body=Just+push+%27Submit+new+issue%27.">1</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C6&body=Just+push+%27Submit+new+issue%27.">0</a></td>
 </tr>
 <tbody>
 </table>
