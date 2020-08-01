@@ -3,7 +3,9 @@
   "version": "0.1.0-beta",
   "description": "Play Sungka (Mancala)",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "jest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cbebe/chonka.git"
