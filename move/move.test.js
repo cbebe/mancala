@@ -72,3 +72,37 @@ test("Extra move", () => {
   const output = makeMove(input, "top", 0);
   expect(equalBoards(output, expected)).toBe(true);
 });
+
+test("No moves even when the current player has extra move", () => {
+  const input = {
+    currentTurn: "top",
+    top: [0, 0, 0, 0, 0, 0, 1],
+    bot: [7, 7, 7, 7, 7, 7, 7],
+    scores: { top: 0, bot: 0 },
+  };
+  const expected = {
+    currentTurn: "bot",
+    top: [0, 0, 0, 0, 0, 0, 0],
+    bot: [7, 7, 7, 7, 7, 7, 7],
+    scores: { top: 1, bot: 0 },
+  };
+  const output = makeMove(input, "top", 6);
+  expect(equalBoards(output, expected)).toBe(true);
+});
+
+test("No moves for the other player", () => {
+  const input = {
+    currentTurn: "bot",
+    top: [0, 0, 0, 0, 0, 0, 0],
+    bot: [0, 0, 0, 0, 0, 1, 0],
+    scores: { top: 0, bot: 0 },
+  };
+  const expected = {
+    currentTurn: "bot",
+    top: [0, 0, 0, 0, 0, 0, 0],
+    bot: [0, 0, 0, 0, 0, 0, 1],
+    scores: { top: 0, bot: 0 },
+  };
+  const output = makeMove(input, "bot", 5);
+  expect(equalBoards(output, expected)).toBe(true);
+});

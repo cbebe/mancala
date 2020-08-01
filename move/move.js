@@ -14,6 +14,10 @@ function getOtherSide(currentSide) {
   return currentSide === "top" ? "bot" : "top";
 }
 
+function hasMoves(board, side) {
+  return board[side].some(hole => hole > 0);
+}
+
 function makeMove(board, side, holeIdx) {
   const newBoard = { ...board };
   const otherSide = getOtherSide(side);
@@ -56,7 +60,12 @@ function makeMove(board, side, holeIdx) {
     currentSide = getOtherSide(currentSide);
     startingIdx = 0;
   }
-  newBoard.currentTurn = extraMove ? side : otherSide;
+  if ((extraMove && hasMoves(board, side)) || !hasMoves(board, otherSide)) {
+    newBoard.currentTurn = side;
+  } else {
+    newBoard.currentTurn = otherSide;
+  }
+
   return newBoard;
 }
 
