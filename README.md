@@ -16,8 +16,8 @@ It's top side's turn! Choose a hole to move.
 </thead>
 <tbody>
 <tr>
-<td rowspan=2>48</td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C6&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">1</a></td>
+<td rowspan=2>49</td>
+<td>0</td>
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C5&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">1</a></td>
 <td>0</td>
 <td>0</td>
