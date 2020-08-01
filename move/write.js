@@ -1,18 +1,25 @@
 const createLink = (pos, side, score) => {
   const issue = "https://github.com/cbebe/chonka/issues/new?";
   const title = `title=sungka%7C${side}%7C${pos}&`;
-  const body = "body=Just+push+%27Submit+new+issue%27.";
+  const body =
+    "body=Just+push+%27Submit+new+issue%27.+Wait+30+seconds+to+check+if+you+have+an+extra+move%82+or+let+someone+else+play.";
   return `<a href="${issue}${title}${body}">${score}</a>`;
 };
 
-const createRow = (side, arr, currentTurn) => {
-  const isTurn = side === currentTurn;
-  let arrCopy = [...arr];
-  if (side === "bot") arrCopy = arrCopy.reverse();
-  return arr
+const createRow = (board, side) => {
+  const isTurn = side === board.currentTurn;
+  const reversed = side === "top";
+  let holeArray = [...board[side]];
+  holeArray = reversed ? holeArray.reverse() : holeArray;
+
+  return holeArray
     .map(
       (score, idx) =>
-        `<td>${isTurn ? createLink(idx, side, score) : score}</td>\n`
+        `<td>${
+          isTurn && score
+            ? createLink(reversed ? 6 - idx : idx, side, score)
+            : score
+        }</td>\n`
     )
     .join("");
 };
@@ -23,9 +30,9 @@ const createTable = board => {
     "<th colspan=7>Holes</th>\n<th>Bottom</th>\n</tr>\n</thead>\n<tbody>\n";
 
   const topScore = `<tr>\n<td rowspan=2>${board.scores.top}</td>\n`;
-  const topRow = createRow("top", board.top, board.currentTurn);
+  const topRow = createRow(board, "top");
   const botScore = `<td rowspan=2>${board.scores.bot}</td>\n</tr>\n<tr>\n`;
-  const botRow = createRow("bot", board.bot, board.currentTurn);
+  const botRow = createRow(board, "bot");
 
   tableStr +=
     topScore + topRow + botScore + botRow + "</tr>\n<tbody>\n</table>\n";
@@ -48,5 +55,13 @@ const writeReadme = board => {
 
   return readMeText;
 };
+const board = {
+  currentTurn: "top",
+  top: [0, 1, 2, 3, 4, 5, 6],
+  bot: [0, 1, 2, 3, 4, 5, 6],
+  scores: { top: 0, bot: 0 },
+};
+
+console.log(writeReadme(board));
 
 module.exports = { writeReadme };
