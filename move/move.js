@@ -16,13 +16,25 @@ function makeMove(board, side, holeIdx) {
   let currentSide = side;
   while (stones > 0) {
     for (let i = startingIdx; stones && i < 7; ++i) {
-      if (stones === 1) {
-        stones === ++newBoard[currentSide][i];
+      // last stone mechanics
+      const lastStone = stones === 1;
+      const nextPitEmpty = !newBoard[currentSide][i];
+      const otherPitEmpty = !newBoard[otherSide][6 - i];
+      const canCapture = nextPitEmpty && !otherPitEmpty && currentSide === side;
+
+      if (lastStone && !nextPitEmpty) {
+        stones = ++newBoard[currentSide][i];
+        newBoard[currentSide][i] = 0;
+      } else if (lastStone && canCapture) {
+        newBoard.scores[side] += ++newBoard[otherSide][6 - i];
+        newBoard[otherSide][6 - i] = 0;
+        stones--;
       } else {
         stones--;
         newBoard[currentSide][i]++;
       }
     }
+
     if (stones && currentSide === side) {
       newBoard.scores[side]++;
       stones--;
@@ -50,3 +62,5 @@ jsonfile.readFile(file, (err, obj) => {
     if (err) console.error(err);
   });
 });
+
+module.exports = { makeMove, getOtherSide };
