@@ -16,24 +16,24 @@ It's top side's turn! Choose a hole to move.
 </thead>
 <tbody>
 <tr>
-<td rowspan=2>50</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td rowspan=2>47</td>
+<td rowspan=2>0</td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C6&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">7</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C5&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">7</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C4&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">7</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C3&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">7</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C2&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">7</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C1&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">7</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C0&body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.">7</a></td>
+<td rowspan=2>0</td>
 </tr>
 <tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
 </tr>
 <tbody>
 </table>
