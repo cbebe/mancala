@@ -2,6 +2,22 @@ const core = require("@actions/core");
 const jsonfile = require("jsonfile");
 const file = "./board.json";
 
+// **********************
+//  FUNCTIONS
+// **********************
+
+function equalBoards(b1, b2) {
+  // i don't wanna compare arrays >:)
+  if (b1.top.toString() !== b2.top.toString()) return false;
+  if (b1.bot.toString() !== b2.bot.toString()) return false;
+
+  if (b1.currentTurn !== b2.currentTurn) return false;
+  if (b1.scores.top !== b2.scores.top) return false;
+  if (b1.scores.bot !== b2.scores.bot) return false;
+
+  return true;
+}
+
 function getOtherSide(currentSide) {
   return currentSide === "top" ? "bot" : "top";
 }
@@ -14,6 +30,7 @@ function makeMove(board, side, holeIdx) {
   newBoard[side][holeIdx] = 0;
   let startingIdx = holeIdx + 1;
   let currentSide = side;
+  let extraMove = false;
   while (stones > 0) {
     for (let i = startingIdx; stones && i < 7; ++i) {
       // last stone mechanics
@@ -38,11 +55,14 @@ function makeMove(board, side, holeIdx) {
     if (stones && currentSide === side) {
       newBoard.scores[side]++;
       stones--;
+      if (stones === 0) {
+        extraMove = true;
+      }
     }
     currentSide = getOtherSide(currentSide);
     startingIdx = 0;
   }
-  newBoard.currentTurn = otherSide;
+  newBoard.currentTurn = extraMove ? side : otherSide;
   return newBoard;
 }
 
@@ -51,6 +71,11 @@ function getArgs(title) {
   return args.slice(1);
 }
 
+// **********************
+//  END FUNCTIONS
+// **********************
+
+// Main script
 jsonfile.readFile(file, (err, obj) => {
   if (err) console.error(err);
 
@@ -58,9 +83,12 @@ jsonfile.readFile(file, (err, obj) => {
   const args = getArgs(title);
   const res = makeMove(obj, args[0], Number(args[1]));
 
-  jsonfile.writeFile(file, res, { spaces: 2 }, err => {
-    if (err) console.error(err);
-  });
+  if (!equalBoards(obj, res)) {
+    jsonfile.writeFile(file, res, { spaces: 2 }, err => {
+      if (err) console.error(err);
+    });
+  }
 });
 
-module.exports = { makeMove, getOtherSide };
+// exports for testing
+module.exports = { makeMove, equalBoards };
