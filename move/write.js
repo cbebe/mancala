@@ -2,7 +2,7 @@ const createLink = (pos, side, score) => {
   const issue = "https://github.com/cbebe/chonka/issues/new?";
   const title = `title=sungka%7C${side}%7C${pos}&`;
   const body =
-    "body=Just+push+%27Submit+new+issue%27.+Wait+30+seconds+to+check+if+you+have+an+extra+move%82+or+let+someone+else+play.";
+    "body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.";
   return `<a href="${issue}${title}${body}">${score}</a>`;
 };
 
