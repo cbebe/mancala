@@ -1,13 +1,13 @@
 {
-  "currentTurn": "top",
+  "currentTurn": "bot",
   "top": [
     0,
     0,
     0,
     0,
     0,
-    1,
-    0
+    0,
+    1
   ],
   "bot": [
     0,
