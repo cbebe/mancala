@@ -18,7 +18,9 @@ function makeMove(board, side, holeIdx) {
   const newBoard = { ...board };
   const otherSide = getOtherSide(side);
   let stones = newBoard[side][holeIdx];
-  if (!stones && side !== newBoard.currentTurn) return newBoard;
+  if (!stones || holeIdx < 0 || holeIdx > 6 || side !== newBoard.currentTurn)
+    return newBoard;
+
   newBoard[side][holeIdx] = 0;
   let startingIdx = holeIdx + 1;
   let currentSide = side;

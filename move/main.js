@@ -1,5 +1,10 @@
 const core = require("@actions/core");
 const jsonfile = require("jsonfile");
+const fs = require("fs");
+
+const { makeMove, equalBoards } = require("./move.js");
+const { writeReadme } = require("./write.js");
+
 const file = "./board.json";
 
 function getArgs(title) {
@@ -19,5 +24,6 @@ jsonfile.readFile(file, (err, obj) => {
     jsonfile.writeFile(file, res, { spaces: 2 }, err => {
       if (err) console.error(err);
     });
+    fs.writeFileSync("./README.md", writeReadme(res));
   }
 });
