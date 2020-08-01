@@ -1,5 +1,5 @@
 {
-  "currentTurn": "bot",
+  "currentTurn": "top",
   "top": [
     0,
     0,
@@ -14,8 +14,8 @@
     0,
     0,
     0,
-    1,
     0,
+    1,
     0
   ],
   "scores": {
