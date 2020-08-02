@@ -41,5 +41,3 @@ jsonfile.readFile(file, (err, obj) => {
     args[0] === "new" ? newBoard : makeMove(obj, args[0], Number(args[1]));
   writeBoardToFiles(res);
 });
-
-console.log(core.getInput("user"));
