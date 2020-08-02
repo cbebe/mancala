@@ -1,6 +1,6 @@
 {
   "players": {
-    "undefined": 3
+    "undefined": 4
   },
   "games": {
     "totalGames": 0,
@@ -9,7 +9,7 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 3
+    "totalMoves": 4
   },
   "mostRecentMoves": [
     {},
