@@ -6,7 +6,6 @@ const { makeMove } = require("./move.js");
 const { writeReadme } = require("./write.js");
 
 const file = "./board.json";
-const newFile = "./newBoard.json";
 
 function getArgs(title) {
   const args = title.split("|");
@@ -42,3 +41,5 @@ jsonfile.readFile(file, (err, obj) => {
     args[0] === "new" ? newBoard : makeMove(obj, args[0], Number(args[1]));
   writeBoardToFiles(res);
 });
+
+console.log(core.getInput("user"));
