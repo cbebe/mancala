@@ -1,6 +1,6 @@
 {
   "players": {
-    "undefined": 4
+    
   },
   "games": {
     "totalGames": 0,
@@ -12,8 +12,6 @@
     "totalMoves": 4
   },
   "mostRecentMoves": [
-    {},
-    {},
-    {}
+
   ]
 }
