@@ -118,3 +118,23 @@ test("No moves for the other player", () => {
   const output = makeMove(input, "bot", 5);
   expect(equalBoards(output, expected)).toBe(true);
 });
+
+test("Game over", () => {
+  const input = {
+    currentTurn: "bot",
+    top: [0, 0, 0, 0, 0, 0, 0],
+    bot: [0, 0, 0, 0, 0, 0, 1],
+    scores: { top: 0, bot: 0 },
+    gameOver: false,
+  };
+  const expected = {
+    currentTurn: "bot",
+    top: [0, 0, 0, 0, 0, 0, 0],
+    bot: [0, 0, 0, 0, 0, 0, 0],
+    scores: { top: 0, bot: 1 },
+    gameOver: true,
+  };
+  const output = makeMove(input, "bot", 6);
+  console.log({ expected, output });
+  expect(equalBoards(output, expected)).toBe(true);
+});
