@@ -55,7 +55,7 @@ const writeReadme = board => {
   let readMeText =
     "# Charles's community Mancala game\n" +
     "\n## WORK IN PROGRESS\n\nThis is Sungka, a Philippine mancala game. " +
-    "ANYONE is free to play! " +
+    "Anyone is free to participate! " +
     `Click here for the [rules](${rulesLink}).\n` +
     "\nDirection of sowing is counter-clockwise (top goes to the left, bottom goes to the right).\n";
 
@@ -70,14 +70,16 @@ const writeReadme = board => {
   return readMeText;
 };
 
-const board = {
-  currentTurn: "top",
-  top: [0, 1, 2, 3, 4, 5, 6],
-  bot: [0, 1, 2, 3, 4, 5, 6],
-  scores: { top: 0, bot: 0 },
-  gameOver: false,
-};
+// for testing
 
-console.log(writeReadme(board));
+// const board = {
+//   currentTurn: "top",
+//   top: [0, 0, 0, 0, 0, 0, 0],
+//   bot: [0, 0, 0, 0, 0, 0, 0],
+//   scores: { top: 0, bot: 0 },
+//   gameOver: true,
+// };
+
+// console.log(writeReadme(board));
 
 module.exports = { writeReadme };
