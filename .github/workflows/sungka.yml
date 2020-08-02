@@ -18,6 +18,8 @@ jobs:
         with:
           node-version: 12.x
       - run: npm install
+      - name: Compile Typescript
+        run: tsc
       - name: Make a move
         uses: ./move
         id: move

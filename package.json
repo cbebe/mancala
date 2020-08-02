@@ -27,5 +27,8 @@
     "ts-jest": "^26.1.4",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.11.0"
   }
 }
