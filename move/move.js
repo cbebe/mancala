@@ -7,6 +7,8 @@ function equalBoards(b1, b2) {
   if (b1.scores.top !== b2.scores.top) return false;
   if (b1.scores.bot !== b2.scores.bot) return false;
 
+  if (b1.gameOver !== b2.gameOver) return false;
+
   return true;
 }
 
@@ -20,11 +22,18 @@ function hasMoves(board, side) {
 
 function makeMove(board, side, holeIdx) {
   const newBoard = { ...board };
-  const otherSide = getOtherSide(side);
   let stones = newBoard[side][holeIdx];
-  if (!stones || holeIdx < 0 || holeIdx > 6 || side !== newBoard.currentTurn)
+
+  if (
+    !stones ||
+    holeIdx < 0 ||
+    holeIdx > 6 ||
+    side !== newBoard.currentTurn ||
+    newBoard.gameOver
+  )
     return newBoard;
 
+  const otherSide = getOtherSide(side);
   newBoard[side][holeIdx] = 0;
   let startingIdx = holeIdx + 1;
   let currentSide = side;
@@ -60,11 +69,14 @@ function makeMove(board, side, holeIdx) {
     currentSide = getOtherSide(currentSide);
     startingIdx = 0;
   }
-  if ((extraMove && hasMoves(board, side)) || !hasMoves(board, otherSide)) {
-    newBoard.currentTurn = side;
-  } else {
-    newBoard.currentTurn = otherSide;
-  }
+
+  const playerHasMoves = hasMoves(board, side);
+  const enemyHasMoves = hasMoves(board, otherSide);
+
+  const moveAgain = (extraMove && playerHasMoves) || !enemyHasMoves;
+  newBoard.currentTurn = moveAgain ? side : otherSide;
+
+  if (!(playerHasMoves || enemyHasMoves)) newBoard.gameOver = true;
 
   return newBoard;
 }

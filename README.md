@@ -2,8 +2,9 @@
 
 ## WORK IN PROGRESS
 
-This is Sungka, a Philippine mancala game. Click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).
+This is Sungka, a Philippine mancala game. ANYONE is free to play! Click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).
 
+Direction of sowing is counter-clockwise (top goes to the left, bottom goes to the right).
 It's top side's turn! Choose a hole to move.
 
 <table>
