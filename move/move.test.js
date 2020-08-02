@@ -169,3 +169,23 @@ test("Cancel attempt to create new game", () => {
   const output = newGame(input);
   expect(equalBoards(output, expected)).toBe(true);
 });
+
+test("Getting a draw", () => {
+  const input = {
+    currentTurn: "bot",
+    top: [0, 0, 0, 0, 0, 0, 0],
+    bot: [0, 0, 0, 0, 0, 0, 1],
+    scores: { top: 1, bot: 0 },
+    gameOver: false,
+  };
+  const expected = {
+    currentTurn: "draw",
+    top: [0, 0, 0, 0, 0, 0, 0],
+    bot: [0, 0, 0, 0, 0, 0, 0],
+    scores: { top: 1, bot: 1 },
+    gameOver: true,
+  };
+
+  const output = makeMove(input, "bot", 6);
+  expect(equalBoards(output, expected)).toBe(true);
+});

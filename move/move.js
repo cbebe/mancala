@@ -35,6 +35,9 @@ function newGame(board) {
   return board.gameOver ? newBoard : board;
 }
 
+const getWinner = ({ top, bot }) =>
+  top > bot ? "top" : bot > top ? "bot" : "draw";
+
 function makeMove(board, side, holeIdx) {
   const newBoard = { ...board };
   let stones = newBoard[side][holeIdx];
@@ -91,7 +94,10 @@ function makeMove(board, side, holeIdx) {
   const moveAgain = (extraMove && playerHasMoves) || !enemyHasMoves;
   newBoard.currentTurn = moveAgain ? side : otherSide;
 
-  if (!(playerHasMoves || enemyHasMoves)) newBoard.gameOver = true;
+  if (!(playerHasMoves || enemyHasMoves)) {
+    newBoard.gameOver = true;
+    newBoard.currentTurn = getWinner(newBoard.scores);
+  }
 
   return newBoard;
 }

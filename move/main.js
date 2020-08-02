@@ -4,29 +4,41 @@ const fs = require("fs");
 
 const { makeMove, newGame } = require("./move.js");
 const { createReadme } = require("./write.js");
+const { updateAfterTurn, updateAfterGame } = require("./update.js");
 
-const file = "./board.json";
+const boardFile = "./board.json";
+const dataFile = "./data.json";
 
 function getArgs(title) {
   const args = title.split("|");
   return args.slice(1);
 }
-function writeBoardToFiles(board) {
-  jsonfile.writeFile(file, board, { spaces: 2 }, err => {
+function writeToFiles(board, data) {
+  jsonfile.writeFile(boardFile, board, { spaces: 2 }, err => {
     if (err) console.error(err);
   });
-  fs.writeFileSync("./README.md", createReadme(board));
+  jsonfile.writeFile(dataFile, data, { spaces: 2 }, err => {
+    if (err) console.error(err);
+  });
+  fs.writeFileSync("./README.md", createReadme(board, data));
 }
 
 // Main script
 
-jsonfile.readFile(file, (err, obj) => {
+jsonfile.readFile(boardFile, (err, obj) => {
   if (err) console.error(err);
 
   const title = core.getInput("title") || "sungka|new";
   const args = getArgs(title);
 
-  const res =
-    args[0] === "new" ? newGame(obj) : makeMove(obj, args[0], Number(args[1]));
-  writeBoardToFiles(res);
+  const board =
+    args[0] === "new" ? newGame(obj) : makeMove(obj, args[0], args[1]);
+  jsonfile.readFile(dataFile, (err, obj) => {
+    let data = { ...obj };
+    if (err) console.error(err);
+
+    data = updateAfterTurn(data);
+    if (board.gameOver) data = updateAfterGame(data, board.currentTurn);
+    writeToFiles(board, data);
+  });
 });

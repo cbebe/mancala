@@ -25,6 +25,7 @@ test("Updating data after game", () => {
       wins: {
         top: 0,
         bot: 0,
+        draw: 0,
       },
     },
     totalMoves: 0,
@@ -37,6 +38,7 @@ test("Updating data after game", () => {
       wins: {
         top: 1,
         bot: 0,
+        draw: 0,
       },
     },
     totalMoves: 0,
@@ -54,6 +56,7 @@ test("Updating data after turn", () => {
       wins: {
         top: 0,
         bot: 0,
+        draw: 0,
       },
     },
     totalMoves: 0,
@@ -66,6 +69,7 @@ test("Updating data after turn", () => {
       wins: {
         top: 0,
         bot: 0,
+        draw: 0,
       },
     },
     totalMoves: 0,
