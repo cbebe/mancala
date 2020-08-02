@@ -1,22 +1,23 @@
+import { Board, Data } from "./interfaces";
 const instruction = "Just push 'Submit new issue' without changing the title";
 
-const createHTTPText = (text, plus = false) => {
+export const createHTTPText = (text: string, plus = false) => {
   return text
     .replace(/ /g, plus ? "+" : "%20")
     .replace(/'/g, "%27")
     .replace(/\|/g, "%7C");
 };
 
-const createIssueLink = (title, body, innerText) => {
+const createIssueLink = (title: string, body: string, innerText: string) => {
   return `<a href="https://github.com/cbebe/chonka/issues/new?title=${title}&body=${body}">${innerText}</a>`;
 };
 
-const createMoveLink = (pos, side, score) => {
+const createMoveLink = (pos: number, side: "top" | "bot", score: number) => {
   const text = createHTTPText(
     `${instruction}. Please wait 30 seconds to check if you have an extra move or let someone else play the turn.`
   );
 
-  return createIssueLink(`sungka%7C${side}%7C${pos}&`, text, score);
+  return createIssueLink(`sungka%7C${side}%7C${pos}&`, text, String(score));
 };
 
 const createNewGameLink = () => {
@@ -24,7 +25,7 @@ const createNewGameLink = () => {
   return createIssueLink("sungka%7Cnew&", text, "new game");
 };
 
-const createRow = (board, side) => {
+const createRow = (board: Board, side: "top" | "bot") => {
   const isTurn = side === board.currentTurn;
   const reversed = side === "top";
   let holeArray = [...board[side]];
@@ -42,7 +43,7 @@ const createRow = (board, side) => {
     .join("");
 };
 
-const createTable = board => {
+const createTable = (board: Board) => {
   let tableStr =
     "<table>\n<thead>\n<tr>\n<th>Top</th>\n" +
     "<th colspan=7>Holes</th>\n<th>Bottom</th>\n</tr>\n</thead>\n<tbody>\n";
@@ -58,11 +59,11 @@ const createTable = board => {
   return tableStr;
 };
 
-const createUserLink = name => {
+const createUserLink = (name: string) => {
   return `[@${name}](https://github.com/${name})`;
 };
 
-const createRecentMoves = data => {
+const createRecentMoves = (data: Data) => {
   const heading = "## Most Recent Moves\n\n";
   let tableStr = "|Username|Side|Hole Index|\n|-|-|-|\n";
   data.mostRecentMoves.forEach(({ name, side, idx }) => {
@@ -71,7 +72,7 @@ const createRecentMoves = data => {
   return heading + tableStr;
 };
 
-const parseStats = data => {
+const parseStats = (data: Data) => {
   const moves = data.games.totalMoves;
   const players = Object.keys(data.players).length;
   const games = data.games.totalGames;
@@ -79,11 +80,11 @@ const parseStats = data => {
   return [moves, players, games];
 };
 
-const createBadgeLink = (text, number, colour) => {
+const createBadgeLink = (text: string, number: number, colour: string) => {
   return `![](https://img.shields.io/badge/${text}-${number}-${colour})`;
 };
 
-const createStatBadges = data => {
+const createStatBadges = (data: Data) => {
   const stats = parseStats(data);
   const colours = ["blue", "red", "green"];
 
@@ -98,7 +99,7 @@ const createStatBadges = data => {
     .join("\n");
 };
 
-const createReadme = (board, data) => {
+export const createReadme = (board: Board, data: Data) => {
   let readMeText =
     "# Charles's community Mancala game\n\n" +
     createStatBadges(data) +
@@ -116,9 +117,4 @@ const createReadme = (board, data) => {
   );
 
   return readMeText;
-};
-
-module.exports = {
-  createReadme,
-  createHTTPText,
 };

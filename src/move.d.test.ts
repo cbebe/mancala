@@ -1,12 +1,13 @@
-const { makeMove, equalBoards, newGame } = require("./move.js");
+import { makeMove, equalBoards, newGame } from "./move";
+import { Board, Side } from "./interfaces";
 
 const board = (
   top: number[],
   bot: number[],
-  currentTurn: "top" | "bot" | "draw",
+  currentTurn: Side | "draw",
   scores: [number, number] = [0, 0],
   gameOver = false
-) => {
+): Board => {
   return {
     currentTurn,
     top,
@@ -16,8 +17,8 @@ const board = (
   };
 };
 
-const newArr = [7, 7, 7, 7, 7, 7, 7];
-const empty = [0, 0, 0, 0, 0, 0, 0];
+const newArr = () => [7, 7, 7, 7, 7, 7, 7];
+const empty = () => [0, 0, 0, 0, 0, 0, 0];
 
 test("Avalanche mechanic on own side", () => {
   const bot = [1, 0, 1, 1, 1, 1, 1];
@@ -42,50 +43,51 @@ test("Capture mechanic", () => {
 });
 
 test("Extra move", () => {
-  const i = board(newArr, newArr, "top");
-  const e = board([0, 8, 8, 8, 8, 8, 8], newArr, "top", [1, 0]);
+  const i = board(newArr(), newArr(), "top");
+  const e = board([0, 8, 8, 8, 8, 8, 8], newArr(), "top", [1, 0]);
   const o = makeMove(i, "top", 0);
   expect(equalBoards(o, e)).toBe(true);
 });
 
 test("No moves even when the current player has extra move", () => {
-  const i = board([0, 0, 0, 0, 0, 0, 1], newArr, "top");
-  const e = board(empty, newArr, "bot", [1, 0]);
+  const i = board([0, 0, 0, 0, 0, 0, 1], newArr(), "top");
+  const e = board(empty(), newArr(), "bot", [1, 0]);
   const o = makeMove(i, "top", 6);
   expect(equalBoards(o, e)).toBe(true);
 });
 
 test("No moves for the other player", () => {
-  const i = board(empty, [0, 0, 0, 0, 0, 1, 0], "bot");
-  const e = board(empty, [0, 0, 0, 0, 0, 0, 1], "bot");
+  const i = board(empty(), [0, 0, 0, 0, 0, 1, 0], "bot");
+  const e = board(empty(), [0, 0, 0, 0, 0, 0, 1], "bot");
   const o = makeMove(i, "bot", 5);
   expect(equalBoards(o, e)).toBe(true);
 });
 
 test("Game over", () => {
-  const i = board(empty, [0, 0, 0, 0, 0, 0, 1], "bot");
-  const e = board(empty, empty, "bot", [0, 1]);
+  const i = board(empty(), [0, 0, 0, 0, 0, 0, 1], "bot");
+  const e = board(empty(), empty(), "bot", [0, 1], true);
   const o = makeMove(i, "bot", 6);
+  console.log({ o, e });
   expect(equalBoards(o, e)).toBe(true);
 });
 
 test("Creates new game", () => {
-  const i = board(empty, empty, "draw", [49, 49], true);
-  const e = board(newArr, newArr, "top");
+  const i = board(empty(), empty(), "draw", [49, 49], true);
+  const e = board(newArr(), newArr(), "top");
   const o = newGame(i);
   expect(equalBoards(o, e)).toBe(true);
 });
 
 test("Cancel attempt to create new game", () => {
-  const i = board(newArr, newArr, "bot");
+  const i = board(newArr(), newArr(), "bot");
   const e = i;
   const o = newGame(i);
   expect(equalBoards(o, e)).toBe(true);
 });
 
 test("Getting a draw", () => {
-  const i = board(empty, [0, 0, 0, 0, 0, 0, 1], "bot", [1, 0]);
-  const e = board(empty, empty, "draw", [1, 1], true);
+  const i = board(empty(), [0, 0, 0, 0, 0, 0, 1], "bot", [1, 0]);
+  const e = board(empty(), empty(), "draw", [1, 1], true);
   const o = makeMove(i, "bot", 6);
   expect(equalBoards(o, e)).toBe(true);
 });

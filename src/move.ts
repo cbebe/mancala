@@ -1,4 +1,6 @@
-function equalBoards(b1, b2) {
+import { Board, Scores, Side } from "./interfaces";
+
+export function equalBoards(b1: Board, b2: Board) {
   // i don't wanna compare arrays >:)
   if (b1.top.toString() !== b2.top.toString()) return false;
   if (b1.bot.toString() !== b2.bot.toString()) return false;
@@ -12,15 +14,15 @@ function equalBoards(b1, b2) {
   return true;
 }
 
-function getOtherSide(currentSide) {
+function getOtherSide(currentSide: Side) {
   return currentSide === "top" ? "bot" : "top";
 }
 
-function hasMoves(board, side) {
+function hasMoves(board: Board, side: Side) {
   return board[side].some(hole => hole > 0);
 }
 
-const newBoard = {
+const newBoard: Board = {
   currentTurn: "top",
   top: [7, 7, 7, 7, 7, 7, 7],
   bot: [7, 7, 7, 7, 7, 7, 7],
@@ -31,14 +33,14 @@ const newBoard = {
   gameOver: false,
 };
 
-function newGame(board) {
+export function newGame(board: Board): Board {
   return board.gameOver ? newBoard : board;
 }
 
-const getWinner = ({ top, bot }) =>
+const getWinner = ({ top, bot }: Scores) =>
   top > bot ? "top" : bot > top ? "bot" : "draw";
 
-function makeMove(board, side, holeIdx) {
+export function makeMove(board: Board, side: Side, holeIdx: number) {
   const newBoard = { ...board };
   let stones = newBoard[side][holeIdx];
 
@@ -101,6 +103,3 @@ function makeMove(board, side, holeIdx) {
 
   return newBoard;
 }
-
-// exports for testing
-module.exports = { makeMove, equalBoards, newGame };
