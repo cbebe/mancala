@@ -63,11 +63,12 @@ const createUserLink = name => {
 };
 
 const createRecentMoves = data => {
+  const heading = "## Most Recent Moves\n\n";
   let tableStr = "|Username|Side|Hole Index|\n|-|-|-|\n";
   data.mostRecentMoves.forEach(({ name, side, idx }) => {
     tableStr += `|${createUserLink(name)}|${side}|${idx}|\n`;
   });
-  return tableStr;
+  return heading + tableStr;
 };
 
 const parseStats = data => {
