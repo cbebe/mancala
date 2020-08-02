@@ -29,16 +29,19 @@ jsonfile.readFile(boardFile, (err, obj) => {
   if (err) console.error(err);
 
   const title = core.getInput("title") || "sungka|new";
+  const username = core.getInput("user") || "cbebe";
   const args = getArgs(title);
 
-  const board =
-    args[0] === "new" ? newGame(obj) : makeMove(obj, args[0], args[1]);
+  const restartGame = args[0] === "new";
+  const board = restartGame ? newGame(obj) : makeMove(obj, args[0], args[1]);
   jsonfile.readFile(dataFile, (err, obj) => {
     let data = { ...obj };
     if (err) console.error(err);
 
-    data = updateAfterTurn(data);
-    if (board.gameOver) data = updateAfterGame(data, board.currentTurn);
+    if (!restartGame) {
+      data = updateAfterTurn(data, username, args[0], args[1]);
+      if (board.gameOver) data = updateAfterGame(data, board.currentTurn);
+    }
     writeToFiles(board, data);
   });
 });
