@@ -1,6 +1,6 @@
 {
   "players": {
-    
+    "cbebe": 1
   },
   "games": {
     "totalGames": 0,
@@ -9,9 +9,13 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 4
+    "totalMoves": 5
   },
   "mostRecentMoves": [
-
+    {
+      "name": "cbebe",
+      "side": "bot",
+      "idx": "3"
+    }
   ]
 }

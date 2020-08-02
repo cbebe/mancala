@@ -7,7 +7,7 @@ This is Sungka, a Philippine mancala game. Anyone is free to participate!Click h
 
 Direction of sowing is counter-clockwise (top goes to the left, bottom goes to the right).
 
-It's bottom side's turn! Choose a hole to move.
+It's top side's turn! Choose a hole to move.
 
 <table>
 <thead>
@@ -20,23 +20,23 @@ It's bottom side's turn! Choose a hole to move.
 <tbody>
 <tr>
 <td rowspan=2>11</td>
-<td>6</td>
-<td>4</td>
-<td>2</td>
-<td>13</td>
-<td>13</td>
-<td>0</td>
-<td>1</td>
-<td rowspan=2>7</td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C6&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">8</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C5&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">6</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C4&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">4</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C3&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C2&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">2</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C1&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
+<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Ctop%7C0&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">4</a></td>
+<td rowspan=2>10</td>
 </tr>
 <tr>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C0&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">3</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C1&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">13</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C2&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">3</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C3&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">4</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C4&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">13</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C5&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C6&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">4</a></td>
+<td>5</td>
+<td>15</td>
+<td>5</td>
+<td>2</td>
+<td>15</td>
+<td>3</td>
+<td>6</td>
 </tr>
 <tbody>
 </table>
@@ -44,6 +44,4 @@ It's bottom side's turn! Choose a hole to move.
 
 |Username|Side|Hole Index|
 |-|-|-|
-|[@undefined](https://github.com/undefined)|undefined|undefined|
-|[@undefined](https://github.com/undefined)|undefined|undefined|
-|[@undefined](https://github.com/undefined)|undefined|undefined|
+|[@cbebe](https://github.com/cbebe)|bot|3|
