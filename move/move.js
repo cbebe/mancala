@@ -52,15 +52,15 @@ function makeMove(board, side, holeIdx) {
       } else if (lastStone && canCapture) {
         newBoard.scores[side] += ++newBoard[otherSide][6 - i];
         newBoard[otherSide][6 - i] = 0;
-        stones--;
+        --stones;
       } else {
-        stones--;
-        newBoard[currentSide][i]++;
+        --stones;
+        ++newBoard[currentSide][i];
       }
     }
 
     if (stones && currentSide === side) {
-      newBoard.scores[side]++;
+      ++newBoard.scores[side];
       stones--;
       if (stones === 0) {
         extraMove = true;
