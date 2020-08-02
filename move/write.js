@@ -1,19 +1,27 @@
-const fs = require("fs");
+const instruction = "Just push 'Submit new issue' without changing the title";
+
+const createHTTPText = (text, plus = false) => {
+  return text
+    .replace(/ /g, plus ? "+" : "%20")
+    .replace(/'/g, "%27")
+    .replace(/\|/g, "%7C");
+};
+
+const createIssueLink = (title, body, innerText) => {
+  return `<a href="https://github.com/cbebe/chonka/issues/new?title=${title}&body=${body}">${innerText}</a>`;
+};
 
 const createMoveLink = (pos, side, score) => {
-  const issue = "https://github.com/cbebe/chonka/issues/new?";
-  const title = `title=sungka%7C${side}%7C${pos}&`;
-  const body =
-    "body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.";
-  return `<a href="${issue}${title}${body}">${score}</a>`;
+  const text = createHTTPText(
+    `${instruction}. Please wait 30 seconds to check if you have an extra move or let someone else play the turn.`
+  );
+
+  return createIssueLink(`sungka%7C${side}%7C${pos}&`, text, score);
 };
 
 const createNewGameLink = () => {
-  const issue = "https://github.com/cbebe/chonka/issues/new?";
-  const title = `title=sungka%7Cnew&`;
-  const body =
-    "body=Just+push+%27Submit+new+issue%27+without+changing+the+title+to+start+a+new+game.";
-  return `<a href="${issue}${title}${body}">new game</a>`;
+  const text = createHTTPText(`${instruction} to start a new game.`);
+  return createIssueLink("sungka%7Cnew&", text, "new game");
 };
 
 const createRow = (board, side) => {
