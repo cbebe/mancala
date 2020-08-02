@@ -1,4 +1,4 @@
-import { createHTTPText } from "./write";
+import { createHTTPText } from "../src/write";
 
 test("Replace spaces with plus", () => {
   const input = "Hello plus world";

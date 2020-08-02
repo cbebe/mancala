@@ -3,9 +3,8 @@ import {
   updateAfterGame,
   updateAfterTurn,
   updateMostRecent,
-} from "./update";
-
-import { Data, MoveObject } from "./interfaces";
+} from "../src/update";
+import { Data, MoveObject } from "../src/interfaces";
 
 const zeroGames = {
   totalGames: 0,

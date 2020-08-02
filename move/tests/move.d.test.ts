@@ -1,5 +1,5 @@
-import { makeMove, equalBoards, newGame } from "./move";
-import { Board, Side } from "./interfaces";
+import { makeMove, equalBoards, newGame } from "../src/move";
+import { Board, Side } from "../src/interfaces";
 
 const board = (
   top: number[],
