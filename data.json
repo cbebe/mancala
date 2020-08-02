@@ -1,5 +1,7 @@
 {
-  "players": {},
+  "players": {
+    "undefined": 1
+  },
   "games": {
     "totalGames": 0,
     "wins": {
@@ -7,7 +9,9 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 0
+    "totalMoves": 1
   },
-  "mostRecentMoves": []
+  "mostRecentMoves": [
+    {}
+  ]
 }
