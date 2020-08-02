@@ -135,6 +135,5 @@ test("Game over", () => {
     gameOver: true,
   };
   const output = makeMove(input, "bot", 6);
-  console.log({ expected, output });
   expect(equalBoards(output, expected)).toBe(true);
 });
