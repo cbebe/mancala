@@ -3,7 +3,7 @@ const jsonfile = require("jsonfile");
 const fs = require("fs");
 
 const { makeMove } = require("./move.js");
-const { writeReadme } = require("./write.js");
+const { createReadme } = require("./write.js");
 
 const file = "./board.json";
 
@@ -15,7 +15,7 @@ function writeBoardToFiles(board) {
   jsonfile.writeFile(file, board, { spaces: 2 }, err => {
     if (err) console.error(err);
   });
-  fs.writeFileSync("./README.md", writeReadme(board));
+  fs.writeFileSync("./README.md", createReadme(board));
 }
 
 // Main script
