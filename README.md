@@ -45,3 +45,4 @@ It's bottom side's turn! Choose a hole to move.
 |Username|Side|Hole Index|
 |-|-|-|
 |[@undefined](https://github.com/undefined)|undefined|undefined|
+|[@undefined](https://github.com/undefined)|undefined|undefined|
