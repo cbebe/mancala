@@ -100,7 +100,9 @@ const createStatBadges = data => {
 
 const createReadme = (board, data) => {
   let readMeText =
-    "# Charles's community Mancala game\n\n" +
+    "# Hi, I'm Charles\n\n" +
+    "I am a student currently working on stuff I find fun (such as this game!)\n\n" +
+    "## Charles's community Mancala game\n\n" +
     createStatBadges(data) +
     "\nThis is Sungka, a Philippine mancala game. Anyone is free to participate!" +
     "Click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).\n" +
