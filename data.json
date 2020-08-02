@@ -4,7 +4,8 @@
     "totalGames": 0,
     "wins": {
       "top": 0,
-      "bot": 0
+      "bot": 0,
+      "draw": 0
     },
     "totalMoves": 0
   },
