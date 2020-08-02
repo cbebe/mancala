@@ -1,7 +1,7 @@
 {
   "players": {
     "cbebe": 3,
-    "hughjanusonly": 1
+    "hughjanusonly": 2
   },
   "games": {
     "totalGames": 0,
@@ -10,9 +10,14 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 8
+    "totalMoves": 9
   },
   "mostRecentMoves": [
+    {
+      "name": "hughjanusonly",
+      "side": "top",
+      "idx": "3"
+    },
     {
       "name": "cbebe",
       "side": "bot",
@@ -22,11 +27,6 @@
       "name": "cbebe",
       "side": "bot",
       "idx": "6"
-    },
-    {
-      "name": "hughjanusonly",
-      "side": "top",
-      "idx": "4"
     }
   ]
 }
