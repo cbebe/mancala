@@ -99,25 +99,30 @@ const createStatBadges = data => {
 };
 
 const createReadme = (board, data) => {
-  let readMeText =
-    "# Hi, I'm Charles\n\n" +
-    "I am a student currently working on stuff I find fun (such as this game!)\n\n" +
-    "## Charles's community Mancala game\n\n" +
-    createStatBadges(data) +
-    "\nThis is Sungka, a Philippine mancala game. Anyone is free to participate!" +
-    "Click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).\n" +
-    "\nDirection of sowing is counter-clockwise (top goes to the left, bottom goes to the right).\n\n";
+  const rulesLink =
+    "Click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
 
   const turnString = board.gameOver
     ? `The game is over! Click here to start a ${createNewGameLink()}.`
     : `It's ${
         board.currentTurn === "top" ? "top" : "bottom"
       } side's turn! Choose a hole to move.`;
-  readMeText += [turnString, createTable(board), createRecentMoves(data)].join(
-    "\n\n"
-  );
 
-  return readMeText;
+  const description =
+    "I am a student currently working on stuff I find fun (such as this game!)";
+
+  return [
+    "# Hi, I'm Charles",
+    description,
+    "## Charles's community Mancala game",
+    createStatBadges(data),
+    "This is Sungka, a Philippine mancala game. Anyone is free to participate! " +
+      rulesLink,
+    "Direction of sowing is counter-clockwise (top goes to the left, bottom goes to the right).",
+    turnString,
+    createTable(board),
+    createRecentMoves(data),
+  ].join("\n\n");
 };
 
 module.exports = {
