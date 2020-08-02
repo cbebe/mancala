@@ -67,7 +67,6 @@ test("Game over", () => {
   const i = board(empty(), [0, 0, 0, 0, 0, 0, 1], "bot");
   const e = board(empty(), empty(), "bot", [0, 1], true);
   const o = makeMove(i, "bot", 6);
-  console.log({ o, e });
   expect(equalBoards(o, e)).toBe(true);
 });
 
