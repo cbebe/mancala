@@ -20,6 +20,21 @@ function hasMoves(board, side) {
   return board[side].some(hole => hole > 0);
 }
 
+const newBoard = {
+  currentTurn: "top",
+  top: [7, 7, 7, 7, 7, 7, 7],
+  bot: [7, 7, 7, 7, 7, 7, 7],
+  scores: {
+    top: 0,
+    bot: 0,
+  },
+  gameOver: false,
+};
+
+function newGame(board) {
+  return board.gameOver ? newBoard : board;
+}
+
 function makeMove(board, side, holeIdx) {
   const newBoard = { ...board };
   let stones = newBoard[side][holeIdx];
@@ -52,15 +67,15 @@ function makeMove(board, side, holeIdx) {
       } else if (lastStone && canCapture) {
         newBoard.scores[side] += ++newBoard[otherSide][6 - i];
         newBoard[otherSide][6 - i] = 0;
-        stones--;
+        --stones;
       } else {
-        stones--;
-        newBoard[currentSide][i]++;
+        --stones;
+        ++newBoard[currentSide][i];
       }
     }
 
     if (stones && currentSide === side) {
-      newBoard.scores[side]++;
+      ++newBoard.scores[side];
       stones--;
       if (stones === 0) {
         extraMove = true;
@@ -82,4 +97,4 @@ function makeMove(board, side, holeIdx) {
 }
 
 // exports for testing
-module.exports = { makeMove, equalBoards };
+module.exports = { makeMove, equalBoards, newGame };

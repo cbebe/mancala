@@ -1,19 +1,27 @@
-const fs = require("fs");
+const instruction = "Just push 'Submit new issue' without changing the title";
+
+const createHTTPText = (text, plus = false) => {
+  return text
+    .replace(/ /g, plus ? "+" : "%20")
+    .replace(/'/g, "%27")
+    .replace(/\|/g, "%7C");
+};
+
+const createIssueLink = (title, body, innerText) => {
+  return `<a href="https://github.com/cbebe/chonka/issues/new?title=${title}&body=${body}">${innerText}</a>`;
+};
 
 const createMoveLink = (pos, side, score) => {
-  const issue = "https://github.com/cbebe/chonka/issues/new?";
-  const title = `title=sungka%7C${side}%7C${pos}&`;
-  const body =
-    "body=Just+push+%27Submit+new+issue%27+without+changing+the+title.+Please+wait+30+seconds+to+check+if+you+have+an+extra+move+or+let+someone+else+play+the+turn.";
-  return `<a href="${issue}${title}${body}">${score}</a>`;
+  const text = createHTTPText(
+    `${instruction}. Please wait 30 seconds to check if you have an extra move or let someone else play the turn.`
+  );
+
+  return createIssueLink(`sungka%7C${side}%7C${pos}&`, text, score);
 };
 
 const createNewGameLink = () => {
-  const issue = "https://github.com/cbebe/chonka/issues/new?";
-  const title = `title=sungka%7Cnew&`;
-  const body =
-    "body=Just+push+%27Submit+new+issue%27+without+changing+the+title+to+start+a+new+game.";
-  return `<a href="${issue}${title}${body}">new game</a>`;
+  const text = createHTTPText(`${instruction} to start a new game.`);
+  return createIssueLink("sungka%7Cnew&", text, "new game");
 };
 
 const createRow = (board, side) => {
@@ -50,13 +58,51 @@ const createTable = board => {
   return tableStr;
 };
 
-const writeReadme = board => {
-  const rulesLink = "https://mancala.fandom.com/wiki/Sungka#Rules";
+const createUserLink = name => {
+  return `[@${name}](https://github.com/${name})`;
+};
+
+const createRecentMoves = data => {
+  let tableStr = "|Username|Side|Hole Index|\n|-|-|-|\n";
+  data.mostRecentMoves.forEach(({ name, side, idx }) => {
+    tableStr += `|${createUserLink(name)}|${side}|${idx}|\n`;
+  });
+  return tableStr;
+};
+
+const parseStats = data => {
+  const moves = data.games.totalMoves;
+  const players = Object.keys(data.players).length;
+  const games = data.games.totalGames;
+
+  return [moves, players, games];
+};
+
+const createBadgeLink = (text, number, colour) => {
+  return `![](https://img.shields.io/badge/${text}-${number}-${colour})`;
+};
+
+const createStatBadges = data => {
+  const stats = parseStats(data);
+  const colours = ["blue", "red", "green"];
+
+  return [
+    "Total%20moves%20played",
+    "Number%20of%20players",
+    "Games%20completed",
+  ]
+    .map((text, idx) => {
+      createBadgeLink(text, stats[idx], colours[idx]);
+    })
+    .join("\n");
+};
+
+const createReadme = (board, data) => {
   let readMeText =
-    "# Charles's community Mancala game\n" +
-    "\n## WORK IN PROGRESS\n\nThis is Sungka, a Philippine mancala game. " +
-    "Anyone is free to participate! " +
-    `Click here for the [rules](${rulesLink}).\n` +
+    "# Charles's community Mancala game\n\n" +
+    createStatBadges(data) +
+    "\nThis is Sungka, a Philippine mancala game. Anyone is free to participate!" +
+    "Click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).\n" +
     "\nDirection of sowing is counter-clockwise (top goes to the left, bottom goes to the right).\n\n";
 
   const turnString = board.gameOver
@@ -64,21 +110,14 @@ const writeReadme = board => {
     : `It's ${
         board.currentTurn === "top" ? "top" : "bottom"
       } side's turn! Choose a hole to move.`;
-  readMeText += turnString + "\n\n" + createTable(board);
+  readMeText += [turnString, createTable(board), createRecentMoves(data)].join(
+    "\n\n"
+  );
 
   return readMeText;
 };
 
-// for testing
-
-// const board = {
-//   currentTurn: "top",
-//   top: [0, 0, 0, 0, 0, 0, 0],
-//   bot: [0, 0, 0, 0, 0, 0, 0],
-//   scores: { top: 0, bot: 0 },
-//   gameOver: true,
-// };
-
-// console.log(writeReadme(board));
-
-module.exports = { writeReadme };
+module.exports = {
+  createReadme,
+  createHTTPText,
+};

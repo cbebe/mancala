@@ -1,0 +1,12 @@
+{
+  "players": {},
+  "games": {
+    "totalGames": 0,
+    "wins": {
+      "top": 0,
+      "bot": 0
+    },
+    "totalMoves": 0
+  },
+  "mostRecentMoves": []
+}

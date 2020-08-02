@@ -1,4 +1,4 @@
-const { makeMove, equalBoards } = require("./move.js");
+const { makeMove, equalBoards, newGame } = require("./move.js");
 
 test("Avalanche mechanic on own side", () => {
   const input = {
@@ -135,6 +135,37 @@ test("Game over", () => {
     gameOver: true,
   };
   const output = makeMove(input, "bot", 6);
-  console.log({ expected, output });
+  expect(equalBoards(output, expected)).toBe(true);
+});
+
+test("Creates new game", () => {
+  const input = {
+    currentTurn: "bot",
+    top: [0, 0, 0, 0, 0, 0, 0],
+    bot: [0, 0, 0, 0, 0, 0, 0],
+    scores: { top: 49, bot: 49 },
+    gameOver: true,
+  };
+  const expected = {
+    currentTurn: "top",
+    top: [7, 7, 7, 7, 7, 7, 7],
+    bot: [7, 7, 7, 7, 7, 7, 7],
+    scores: { top: 0, bot: 0 },
+    gameOver: false,
+  };
+  const output = newGame(input);
+  expect(equalBoards(output, expected)).toBe(true);
+});
+
+test("Cancel attempt to create new game", () => {
+  const input = {
+    currentTurn: "bot",
+    top: [7, 7, 7, 7, 7, 7, 7],
+    bot: [7, 7, 7, 7, 7, 7, 7],
+    scores: { top: 0, bot: 0 },
+    gameOver: false,
+  };
+  const expected = input;
+  const output = newGame(input);
   expect(equalBoards(output, expected)).toBe(true);
 });
