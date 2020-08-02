@@ -92,9 +92,7 @@ const createStatBadges = data => {
     "Number%20of%20players",
     "Games%20completed",
   ]
-    .map((text, idx) => {
-      createBadgeLink(text, stats[idx], colours[idx]);
-    })
+    .map((text, idx) => createBadgeLink(text, stats[idx], colours[idx]))
     .join("\n");
 };
 
