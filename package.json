@@ -18,7 +18,14 @@
   "homepage": "https://github.com/cbebe/chonka#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
+    "@types/jest": "^26.0.8",
+    "@types/jsonfile": "^6.0.0",
+    "@types/node": "^14.0.27",
+    "eslint-plugin-github": "^4.1.1",
     "jest": "^26.2.2",
-    "jsonfile": "^6.0.1"
+    "jsonfile": "^6.0.1",
+    "ts-jest": "^26.1.4",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7"
   }
 }

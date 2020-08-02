@@ -1,14 +1,26 @@
-const {
+import {
   updatePlayers,
   updateAfterGame,
   updateAfterTurn,
   updateMostRecent,
-} = require("./update.js");
+} from "./update";
+
+import { Data, MoveObject } from "./interfaces";
+
+const zeroGames = {
+  totalGames: 0,
+  wins: {
+    top: 0,
+    bot: 0,
+    draw: 0,
+  },
+  totalMoves: 0,
+};
 
 test("Check if function creates players", () => {
-  const input = {};
+  const input = { boi: 1 };
   const output = updatePlayers(input, "cbebe");
-  expect(output.toString()).toBe({ cbebe: 1 }.toString());
+  expect(output.toString()).toBe({ boi: 1, cbebe: 1 }.toString());
 });
 
 test("Check if function updates player move count", () => {
@@ -18,20 +30,12 @@ test("Check if function updates player move count", () => {
 });
 
 test("Updating data after game", () => {
-  const input = {
+  const input: Data = {
     players: {},
-    games: {
-      totalGames: 0,
-      wins: {
-        top: 0,
-        bot: 0,
-        draw: 0,
-      },
-    },
-    totalMoves: 0,
+    games: zeroGames,
     mostRecentMoves: [],
   };
-  const expected = {
+  const expected: Data = {
     players: {},
     games: {
       totalGames: 1,
@@ -40,29 +44,21 @@ test("Updating data after game", () => {
         bot: 0,
         draw: 0,
       },
+      totalMoves: 1,
     },
-    totalMoves: 0,
     mostRecentMoves: [],
-  }.toString();
-  const output = updateAfterGame(input, "top").toString();
-  expect(output).toBe(expected);
+  };
+  const output = updateAfterGame(input, "top");
+  expect(output.toString()).toBe(expected.toString());
 });
 
 test("Updating data after turn", () => {
-  const input = {
+  const input: Data = {
     players: {},
-    games: {
-      totalGames: 0,
-      wins: {
-        top: 0,
-        bot: 0,
-        draw: 0,
-      },
-    },
-    totalMoves: 0,
+    games: zeroGames,
     mostRecentMoves: [],
   };
-  const expected = {
+  const expected: Data = {
     players: { cbebe: 1 },
     games: {
       totalGames: 0,
@@ -71,29 +67,29 @@ test("Updating data after turn", () => {
         bot: 0,
         draw: 0,
       },
+      totalMoves: 1,
     },
-    totalMoves: 0,
     mostRecentMoves: [{ name: "cbebe", side: "top", idx: 0 }],
-  }.toString();
-  const output = updateAfterTurn(input, "cbebe", "top", 0).toString();
-  expect(output).toBe(expected);
+  };
+  const output: Data = updateAfterTurn(input, "cbebe", "top", 0);
+  expect(output.toString()).toBe(expected.toString());
 });
 
 test("Clips most recent players array", () => {
-  const input = [
+  const input: MoveObject[] = [
     { name: "cbebe3", side: "top", idx: 2 },
     { name: "cbebe2", side: "bot", idx: 1 },
     { name: "cbebe1", side: "top", idx: 0 },
   ];
-  const expected = [
+  const expected: MoveObject[] = [
     { name: "cbebe4", side: "bot", idx: 3 },
     { name: "cbebe3", side: "top", idx: 2 },
     { name: "cbebe2", side: "bot", idx: 1 },
-  ].toString();
+  ];
   const output = updateMostRecent(input, {
     name: "cbebe4",
     side: "bot",
     idx: 3,
-  }).toString();
-  expect(output).toBe(expected);
+  });
+  expect(output.toString()).toBe(expected.toString());
 });
