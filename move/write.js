@@ -57,15 +57,14 @@ const writeReadme = board => {
     "\n## WORK IN PROGRESS\n\nThis is Sungka, a Philippine mancala game. " +
     "Anyone is free to participate! " +
     `Click here for the [rules](${rulesLink}).\n` +
-    "\nDirection of sowing is counter-clockwise (top goes to the left, bottom goes to the right).\n";
+    "\nDirection of sowing is counter-clockwise (top goes to the left, bottom goes to the right).\n\n";
 
   const turnString = board.gameOver
     ? `The game is over! Click here to start a ${createNewGameLink()}.`
-    : `\nIt's ${
+    : `It's ${
         board.currentTurn === "top" ? "top" : "bottom"
-      } side's turn! Choose a hole to move.\n\n`;
-
-  readMeText += turnString + createTable(board);
+      } side's turn! Choose a hole to move.`;
+  readMeText += turnString + "\n\n" + createTable(board);
 
   return readMeText;
 };
