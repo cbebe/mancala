@@ -76,7 +76,7 @@ function makeMove(board, side, holeIdx) {
   const moveAgain = (extraMove && playerHasMoves) || !enemyHasMoves;
   newBoard.currentTurn = moveAgain ? side : otherSide;
 
-  if (!(playerHasMoves || enemyHasMoves)) board.gameOver = true;
+  if (!(playerHasMoves || enemyHasMoves)) newBoard.gameOver = true;
 
   return newBoard;
 }
