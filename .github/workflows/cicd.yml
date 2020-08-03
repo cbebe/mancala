@@ -26,9 +26,13 @@ jobs:
         run: |
           git config --local user.email "action@github.com" 
           git config --local user.name "Github Action"
-          git commit -m ":rocket: deploy compiled files" -a
+          git add dist
+          git commit -m ":rocket: deploy compiled files"
+      - name: Change to master
+        run: |
+          git checkout master
+          git checkout cd dist
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: cd
           github_token: ${{ secrets.ACCESS_TOKEN }}
