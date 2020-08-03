@@ -31,5 +31,13 @@
   },
   "devDependencies": {
     "@babel/types": "^7.11.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "moduleDirectories": [
+      "node_modules",
+      "move"
+    ]
   }
 }
