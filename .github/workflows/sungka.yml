@@ -11,21 +11,21 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
-      - run: |
-          git pull origin master
+      - name: Set env vars
+        run: |
+          echo ::set-env name=REPOSITORY::${{ github.repository }}
+          echo ::set-env name=EVENT_ISSUE_NUMBER::${{ github.event.issue.number }}
+          echo ::set-env name=EVENT_USER_LOGIN::${{ github.event.issue.user.login }}
+          echo ::set-env name=EVENT_ISSUE_TITLE::${{ github.event.issue.title }}
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
       - run: npm install
       - name: Compile Typescript
-        run: tsc
+        run: npm run build
       - name: Make a move
-        uses: ./move
-        id: move
-        with:
-          title: ${{ github.event.issue.title }}
-          user: ${{ github.event.issue.user.login }}
+        run: npm start
       - name: Commit files
         run: |
           git config --local user.email "action@github.com" 
