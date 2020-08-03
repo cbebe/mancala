@@ -1,6 +1,6 @@
 {
   "players": {
-    "cbebe": 29,
+    "cbebe": 30,
     "hughjanusonly": 7
   },
   "games": {
@@ -10,7 +10,7 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 40
+    "totalMoves": 41
   },
   "mostRecentMoves": [
     {
@@ -21,12 +21,12 @@
     {
       "name": "cbebe",
       "side": "bot",
-      "idx": 5
+      "idx": 6
     },
     {
       "name": "cbebe",
       "side": "bot",
-      "idx": 6
+      "idx": 5
     }
   ]
 }

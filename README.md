@@ -4,7 +4,7 @@ I am a student currently working on stuff I find fun (such as this game!)
 
 ## Charles's community Mancala game
 
-![](https://img.shields.io/badge/Total%20moves%20played-40-blue)
+![](https://img.shields.io/badge/Total%20moves%20played-41-blue)
 ![](https://img.shields.io/badge/Number%20of%20players-2-red)
 ![](https://img.shields.io/badge/Games%20completed-0-green)
 
@@ -52,5 +52,5 @@ It's bottom side's turn! Choose a hole to move.
 |Username|Side|Hole Index|
 |-|-|-|
 |[@cbebe](https://github.com/cbebe)|bot|6|
-|[@cbebe](https://github.com/cbebe)|bot|5|
 |[@cbebe](https://github.com/cbebe)|bot|6|
+|[@cbebe](https://github.com/cbebe)|bot|5|
