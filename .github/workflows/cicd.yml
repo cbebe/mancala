@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Check out CD repo
         uses: actions/checkout@v2
-        run: git checkout cd
+      - run: git checkout cd
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
