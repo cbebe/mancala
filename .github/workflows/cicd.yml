@@ -25,6 +25,6 @@ jobs:
           git config --local user.name "Github Action"
           git commit -m ":rocket: deploy compiled files" -a
       - name: Push changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@cd
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
