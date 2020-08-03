@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./move/dist/",
+    "outDir": "./dist/",
     "lib": [],
     "noImplicitAny": true,
     "module": "es6",

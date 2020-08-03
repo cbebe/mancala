@@ -1,0 +1,30 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - cd
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out CD repo
+        uses: actions/checkout@v2
+        run: git checkout cd
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm install
+      - name: Compile typescript
+        run: npm run build
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com" 
+          git config --local user.name "Github Action"
+          git commit -m ":rocket: deploy compiled files" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
