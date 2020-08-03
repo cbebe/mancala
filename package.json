@@ -15,6 +15,7 @@
   "bugs": {
     "url": "https://github.com/cbebe/chonka/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/cbebe/chonka#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",

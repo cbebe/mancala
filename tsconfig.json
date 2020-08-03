@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "outDir": "./move/dist/",
-    "lib": ["ES2017"],
+    "lib": [],
     "noImplicitAny": true,
     "module": "es6",
-    "target": "es5",
+    "target": "es6",
     "jsx": "react",
     "allowJs": true,
     "esModuleInterop": true,

@@ -1,12 +1,10 @@
-// can't use import for some reason
-const core = require("@actions/core");
-
-import * as jsonfile from "jsonfile";
-import * as fs from "fs";
+import core from "@actions/core";
+import jsonfile from "jsonfile";
+import fs from "fs";
 
 import { Board, Data, Side } from "./interfaces";
-import { makeMove, newGame } from "./move";
-import { createReadme } from "./write";
+import { makeMove, newGame } from "./move.js";
+import { createReadme } from "./write.js";
 import { updateAfterTurn, updateAfterGame } from "./update.js";
 
 const boardFile = "./board.json";
