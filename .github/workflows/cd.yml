@@ -28,7 +28,6 @@ jobs:
       - name: Update dist on master
         run: |
           git checkout master
-          git pull origin master
           git checkout ci-cd dist
           git commit -m ":poop: merge dist from ci-cd branch"
       - uses: ad-m/github-push-action@master
