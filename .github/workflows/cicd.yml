@@ -31,7 +31,10 @@ jobs:
       - name: Change to master
         run: |
           git checkout master
+          git pull origin master
           git checkout cd dist
+          git commit -m ":poop: merge dist from cd branch"
+          git log
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
