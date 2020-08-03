@@ -1,10 +1,13 @@
 {
   "name": "chonka",
   "version": "0.1.0-beta",
+  "type": "module",
   "description": "Play Sungka (Mancala)",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "start": "node move/dist/main.js"
   },
   "repository": {
     "type": "git",
@@ -15,7 +18,6 @@
   "bugs": {
     "url": "https://github.com/cbebe/chonka/issues"
   },
-  "type": "module",
   "homepage": "https://github.com/cbebe/chonka#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",

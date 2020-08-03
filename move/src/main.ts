@@ -1,4 +1,3 @@
-import core from "@actions/core";
 import jsonfile from "jsonfile";
 import fs from "fs";
 
@@ -30,8 +29,10 @@ function writeToFiles(board: Board, data: Data) {
 jsonfile.readFile(boardFile, (err: Error, obj: Board) => {
   if (err) console.error(err);
 
-  const title = core.getInput("title") || "sungka|new";
-  const username = core.getInput("user") || "cbebe";
+  const envTitle = process.env.EVENT_ISSUE_TITLE;
+  const envUser = process.env.EVENT_USER_LOGIN;
+  const title = envTitle || "sungka|new";
+  const username = envUser || "cbebe";
   const args = getArgs(title);
 
   const restartGame = args[0] === "new";
