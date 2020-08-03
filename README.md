@@ -4,7 +4,7 @@ I am a student currently working on stuff I find fun (such as this game!)
 
 ## Charles's community Mancala game
 
-![](https://img.shields.io/badge/Total%20moves%20played-27-blue)
+![](https://img.shields.io/badge/Total%20moves%20played-28-blue)
 ![](https://img.shields.io/badge/Number%20of%20players-2-red)
 ![](https://img.shields.io/badge/Games%20completed-0-green)
 
@@ -32,7 +32,7 @@ It's bottom side's turn! Choose a hole to move.
 <td>1</td>
 <td>5</td>
 <td>0</td>
-<td rowspan=2>26</td>
+<td rowspan=2>27</td>
 </tr>
 <tr>
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C0&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
@@ -41,7 +41,7 @@ It's bottom side's turn! Choose a hole to move.
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C3&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
 <td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C4&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">5</a></td>
 <td>0</td>
-<td><a href="https://github.com/cbebe/chonka/issues/new?title=sungka%7Cbot%7C6&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
+<td>0</td>
 </tr>
 <tbody>
 </table>
@@ -51,6 +51,6 @@ It's bottom side's turn! Choose a hole to move.
 
 |Username|Side|Hole Index|
 |-|-|-|
+|[@cbebe](https://github.com/cbebe)|bot|6|
 |[@cbebe](https://github.com/cbebe)|top|5|
 |[@cbebe](https://github.com/cbebe)|top|2|
-|[@cbebe](https://github.com/cbebe)|top|0|
