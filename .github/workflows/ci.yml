@@ -1,6 +1,9 @@
 name: CI
 
-on: pull request
+on:
+  pull_request:
+    branches:
+      - ci-cd
 
 jobs:
   integrate:
