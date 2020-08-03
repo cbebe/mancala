@@ -1,9 +1,9 @@
 {
-  "currentTurn": "bot",
+  "currentTurn": "top",
   "top": [
     0,
     0,
-    2,
+    0,
     1,
     1,
     0,
@@ -13,13 +13,13 @@
     1,
     0,
     0,
-    1,
+    0,
     0,
     0,
     0
   ],
   "scores": {
     "top": 54,
-    "bot": 35
+    "bot": 38
   }
 }
