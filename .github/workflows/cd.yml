@@ -1,27 +1,23 @@
-name: CI/CD
+name: CD
 
 on:
   push:
     branches:
-      - cd
+      - ci-cd
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out CD repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
-          ref: cd
+          ref: ci-cd
           persist-credentials: false
-          fetch-depth: 0
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
-          node-version: 12.x
-      - run: npm install
-      - name: Compile typescript
-        run: npm run build
+          node-version: 12
+      - run: npm ci
+      - run: npm run build
       - name: Commit files
         run: |
           git config --local user.email "action@github.com" 
@@ -29,15 +25,13 @@ jobs:
           git config --local pull.rebase false
           git add dist
           git commit -m ":rocket: deploy compiled files"
-      - name: Change to master
+      - name: Update dist on master
         run: |
           git checkout master
           git pull origin master
-          git checkout cd dist
-          git commit -m ":poop: merge dist from cd branch"
-          git log
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+          git checkout ci-cd dist
+          git commit -m ":poop: merge dist from ci-cd branch"
+      - uses: ad-m/github-push-action@master
         with:
           branch: master
           github_token: ${{ secrets.ACCESS_TOKEN }}
