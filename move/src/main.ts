@@ -29,7 +29,7 @@ function writeToFiles(board: Board, data: Data) {
 jsonfile.readFile(boardFile, (err: Error, obj: Board) => {
   if (err) console.error(err);
 
-  const envTitle = process.env.EVENT_ISSUE_TITLE;
+  const envTitle = process.argv[2];
   const envUser = process.env.EVENT_USER_LOGIN;
   const title = envTitle || "sungka|new";
   const username = envUser || "cbebe";

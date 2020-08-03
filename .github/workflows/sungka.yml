@@ -17,7 +17,6 @@ jobs:
           echo ::set-env name=REPOSITORY::${{ github.repository }}
           echo ::set-env name=EVENT_ISSUE_NUMBER::${{ github.event.issue.number }}
           echo ::set-env name=EVENT_USER_LOGIN::${{ github.event.issue.user.login }}
-          echo ::set-env name=EVENT_ISSUE_TITLE::${{ github.event.issue.title }}
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
@@ -26,7 +25,7 @@ jobs:
       - name: Compile Typescript
         run: npm run build
       - name: Make a move
-        run: npm start
+        run: node move/dist/main.js "${{ github.event.issue.title }}"
       - name: Commit files
         run: |
           git config --local user.email "action@github.com" 
