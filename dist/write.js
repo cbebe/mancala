@@ -79,6 +79,7 @@ export const createReadme = (board, data) => {
         "# Hi, I'm Charles :v:",
         description,
         "## :shell: Charles's community Mancala game",
+        '![]("sungka.png")',
         createStatBadges(data),
         "This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!",
         rulesLink,
