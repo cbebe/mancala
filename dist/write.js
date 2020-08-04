@@ -70,7 +70,7 @@ const createStatBadges = (data) => {
         .join("\n");
 };
 export const createReadme = (board, data) => {
-    const rulesLink = "**Click on the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
+    const rulesLink = " **Click on one of the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
     const turnString = board.gameOver
         ? `The game is over! Click here to start a ${createNewGameLink()}.`
         : `It's **${board.currentTurn === "top" ? "top" : "bottom"}** team's turn :muscle:! Choose a hole to move.`;
@@ -80,7 +80,7 @@ export const createReadme = (board, data) => {
         description,
         "## :shell: Charles's community Mancala game",
         createStatBadges(data),
-        "This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!" +
+        "This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!\n" +
             rulesLink,
         "Direction of sowing is **counter-clockwise** (top goes to the left, bottom goes to the right).",
         turnString,
