@@ -99,7 +99,7 @@ const createStatBadges = (data: Data) => {
 
 export const createReadme = (board: Board, data: Data) => {
   const rulesLink =
-    "**Click on the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
+    " **Click on one of the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
 
   const turnString = board.gameOver
     ? `The game is over! Click here to start a ${createNewGameLink()}.`
