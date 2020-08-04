@@ -30,7 +30,7 @@ jobs:
         with:
           branch: ci-cd
           github_token: ${{ secrets.ACCESS_TOKEN }}
-        - name: Update dist on master
+      - name: Update dist on master
           run: |
           git checkout master
           git rebase ci-cd
