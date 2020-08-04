@@ -13,6 +13,7 @@ jobs:
         with:
           ref: ci-cd
           persist-credentials: false
+          fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
           node-version: 12
