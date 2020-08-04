@@ -80,7 +80,7 @@ export const createReadme = (board, data) => {
         description,
         "## :shell: Charles's community Mancala game",
         createStatBadges(data),
-        "This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!" +
+        "This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!\n" +
             rulesLink,
         "Direction of sowing is **counter-clockwise** (top goes to the left, bottom goes to the right).",
         turnString,
