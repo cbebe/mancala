@@ -24,8 +24,7 @@ jobs:
           git config --local user.email "action@github.com" 
           git config --local user.name "Github Action"
           git config --local pull.rebase true
-          git add dist 
-          git commit -m ":rocket: deploy compiled files" || echo
+          git commit -m ":rocket: deploy compiled files" -a || echo
       - name: Update dist on master
         run: |
           git checkout master
