@@ -26,10 +26,6 @@ jobs:
           git config --local pull.rebase true
           git add dist 
           git commit -m ":rocket: deploy compiled files" || echo
-      - uses: ad-m/github-push-action@master
-        with:
-          branch: ci-cd
-          github_token: ${{ secrets.ACCESS_TOKEN }}
       - name: Update dist on master
         run: |
           git checkout master
