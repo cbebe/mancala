@@ -1,4 +1,4 @@
-# Hi, I'm Charles
+# Sungka + CI/CD Pipeline
 
 I am a student currently working on stuff I find fun (such as this game!)
 
@@ -49,8 +49,8 @@ It's bottom side's turn! Choose a hole to move.
 
 ## Most Recent Moves
 
-|Username|Side|Hole Index|
-|-|-|-|
-|[@cbebe](https://github.com/cbebe)|bot|6|
-|[@cbebe](https://github.com/cbebe)|top|5|
-|[@cbebe](https://github.com/cbebe)|top|2|
+| Username                           | Side | Hole Index |
+| ---------------------------------- | ---- | ---------- |
+| [@cbebe](https://github.com/cbebe) | bot  | 6          |
+| [@cbebe](https://github.com/cbebe) | top  | 5          |
+| [@cbebe](https://github.com/cbebe) | top  | 2          |
