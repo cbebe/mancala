@@ -16,7 +16,7 @@ export interface Board {
 
 export interface MoveObject {
   name: string;
-  side: "top" | "bot";
+  side: Side;
   idx: number;
 }
 

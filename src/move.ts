@@ -42,10 +42,10 @@ const getWinner = ({ top, bot }: Scores) =>
 
 export function makeMove(board: Board, side: Side, holeIdx: number) {
   const newBoard = { ...board };
-  let stones = newBoard[side][holeIdx];
+  let shells = newBoard[side][holeIdx];
 
   if (
-    !stones ||
+    !shells ||
     holeIdx < 0 ||
     holeIdx > 6 ||
     side !== newBoard.currentTurn ||
@@ -58,31 +58,31 @@ export function makeMove(board: Board, side: Side, holeIdx: number) {
   let startingIdx = holeIdx + 1;
   let currentSide = side;
   let extraMove = false;
-  while (stones > 0) {
-    for (let i = startingIdx; stones && i < 7; ++i) {
+  while (shells > 0) {
+    for (let i = startingIdx; shells && i < 7; ++i) {
       // last stone mechanics
-      const lastStone = stones === 1;
+      const lastStone = shells === 1;
       const nextPitEmpty = !newBoard[currentSide][i];
       const otherPitEmpty = !newBoard[otherSide][6 - i];
       const canCapture = nextPitEmpty && !otherPitEmpty && currentSide === side;
 
       if (lastStone && !nextPitEmpty) {
-        stones = ++newBoard[currentSide][i];
+        shells = ++newBoard[currentSide][i];
         newBoard[currentSide][i] = 0;
       } else if (lastStone && canCapture) {
         newBoard.scores[side] += ++newBoard[otherSide][6 - i];
         newBoard[otherSide][6 - i] = 0;
-        --stones;
+        --shells;
       } else {
-        --stones;
+        --shells;
         ++newBoard[currentSide][i];
       }
     }
 
-    if (stones && currentSide === side) {
+    if (shells && currentSide === side) {
       ++newBoard.scores[side];
-      stones--;
-      if (stones === 0) {
+      shells--;
+      if (shells === 0) {
         extraMove = true;
       }
     }

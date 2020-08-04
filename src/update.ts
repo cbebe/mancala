@@ -1,4 +1,4 @@
-import { MoveObject, Players, Data } from "./interfaces";
+import { MoveObject, Players, Data, Side } from "./interfaces";
 
 export const updatePlayers = (players: Players, currentPlayer: string) => {
   if (!players[currentPlayer]) players[currentPlayer] = 1;
@@ -17,7 +17,7 @@ export const updateMostRecent = (
 export const updateAfterTurn = (
   data: Data,
   currentPlayer: string,
-  side: "top" | "bot",
+  side: Side,
   idx: number
 ) => {
   data.players = updatePlayers(data.players, currentPlayer);
@@ -27,7 +27,7 @@ export const updateAfterTurn = (
   return data;
 };
 
-export const updateAfterGame = (data: Data, winner: "top" | "bot" | "draw") => {
+export const updateAfterGame = (data: Data, winner: Side | "draw") => {
   ++data.games.totalGames;
   ++data.games.wins[winner];
   return data;
