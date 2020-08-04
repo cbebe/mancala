@@ -22,13 +22,15 @@ jobs:
         with:
           node-version: 12.x
       - run: npm install
-      - name: Make a move
-        run: node dist/main.js "${{ github.event.issue.title }}"
-      - name: Commit files
+      - name: Configure git
         run: |
           git config --local user.email "action@github.com" 
           git config --local user.name "Github Action"
-          git commit -m ":robot: update board" -a
+      - name: Make a Move
+        run: |
+          title="${{ github.event.issue.title }}"
+          node dist/main.js $title
+          git commit -m "$(node dist/commit.js $title)" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
