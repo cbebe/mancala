@@ -2,7 +2,7 @@
   "players": {
     "cbebe": 44,
     "hughjanusonly": 7,
-    "hugh-jazz": 6
+    "hugh-jazz": 7
   },
   "games": {
     "totalGames": 1,
@@ -11,9 +11,14 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 61
+    "totalMoves": 62
   },
   "mostRecentMoves": [
+    {
+      "name": "hugh-jazz",
+      "side": "top",
+      "idx": 6
+    },
     {
       "name": "hugh-jazz",
       "side": "top",
@@ -22,11 +27,6 @@
     {
       "name": "cbebe",
       "side": "bot",
-      "idx": 0
-    },
-    {
-      "name": "hugh-jazz",
-      "side": "top",
       "idx": 0
     }
   ]
