@@ -24,11 +24,15 @@ jobs:
           git config --local user.email "action@github.com" 
           git config --local user.name "Github Action"
           git config --local pull.rebase true
-          git add dist
-          git commit -m ":rocket: deploy compiled files"
-      - name: Update dist on master
-        run: |
-          git checkout origin/master
+          git add dist 
+          git commit -m ":rocket: deploy compiled files" || echo
+      - uses: ad-m/github-push-action@master
+        with:
+          branch: ci-cd
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+        - name: Update dist on master
+          run: |
+          git checkout master
           git rebase ci-cd
           git commit -m ":octopus: rebase dist from ci-cd branch"
       - uses: ad-m/github-push-action@master
