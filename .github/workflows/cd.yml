@@ -34,7 +34,7 @@ jobs:
         run: |
           git checkout master
           git merge ci-cd
-          git commit -m ":octopus: rebase dist from ci-cd branch"
+          git commit -m ":octopus: rebase dist from ci-cd branch" || echo
       - uses: ad-m/github-push-action@master
         with:
           branch: master
