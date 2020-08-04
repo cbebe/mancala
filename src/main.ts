@@ -26,7 +26,7 @@ function writeToFiles(board: Board, data: Data) {
 
 // Main script
 
-jsonfile.readFile(boardFile, (err: Error, obj: Board) => {
+jsonfile.readFile(boardFile, (err: Error, board: Board) => {
   if (err) console.error(err);
 
   const envTitle = process.argv[2];
@@ -36,17 +36,27 @@ jsonfile.readFile(boardFile, (err: Error, obj: Board) => {
   const args = getArgs(title);
 
   const restartGame = args[0] === "new";
-  const board = restartGame
-    ? newGame(obj)
-    : makeMove(obj, <Side>args[0], Number(args[1]));
-  jsonfile.readFile(dataFile, (err: Error, obj: Data) => {
-    let data = { ...obj };
+  const newBoard = restartGame
+    ? newGame(board)
+    : makeMove(board, <Side>args[0], Number(args[1]));
+  jsonfile.readFile(dataFile, (err: Error, data: Data) => {
+    let newData = { ...data };
     if (err) console.error(err);
 
     if (!restartGame) {
-      data = updateAfterTurn(data, username, <Side>args[0], Number(args[1]));
-      if (board.gameOver) data = updateAfterGame(data, board.currentTurn);
+      newData = updateAfterTurn(
+        newData,
+        username,
+        <Side>args[0],
+        Number(args[1])
+      );
+
+      if (newBoard.gameOver)
+        newData = updateAfterGame(newData, newBoard.currentTurn);
+    } else {
+      newData.mostRecentMoves = [];
     }
-    writeToFiles(board, data);
+
+    writeToFiles(newBoard, newData);
   });
 });
