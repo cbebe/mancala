@@ -1,6 +1,6 @@
 {
   "players": {
-    "cbebe": 50,
+    "cbebe": 51,
     "hughjanusonly": 7,
     "hugh-jazz": 20
   },
@@ -11,9 +11,14 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 81
+    "totalMoves": 82
   },
   "mostRecentMoves": [
+    {
+      "name": "cbebe",
+      "side": "bot",
+      "idx": 5
+    },
     {
       "name": "hugh-jazz",
       "side": "top",
@@ -22,11 +27,6 @@
     {
       "name": "cbebe",
       "side": "bot",
-      "idx": 3
-    },
-    {
-      "name": "hugh-jazz",
-      "side": "top",
       "idx": 3
     }
   ]
