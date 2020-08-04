@@ -1,26 +1,26 @@
 {
-  "currentTurn": "bot",
+  "currentTurn": "top",
   "top": [
-    3,
-    5,
-    3,
-    7,
-    2,
-    0,
-    6
-  ],
-  "bot": [
+    12,
     2,
     1,
-    7,
-    0,
+    1,
     2,
-    17,
-    4
+    4,
+    0
+  ],
+  "bot": [
+    8,
+    2,
+    4,
+    9,
+    3,
+    2,
+    0
   ],
   "scores": {
     "top": 24,
-    "bot": 15
+    "bot": 24
   },
   "gameOver": false
 }
