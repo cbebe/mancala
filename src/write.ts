@@ -64,7 +64,7 @@ const createUserLink = (name: string) => {
 };
 
 const createRecentMoves = (data: Data) => {
-  const heading = "## Most Recent Moves\n\n";
+  const heading = "**Most Recent Moves**\n\n";
   let tableStr = "|Username|Side|Hole Index|\n|-|-|-|\n";
   data.mostRecentMoves.forEach(({ name, side, idx }) => {
     tableStr += `|${createUserLink(name)}|${side}|${idx}|\n`;
@@ -99,25 +99,25 @@ const createStatBadges = (data: Data) => {
 
 export const createReadme = (board: Board, data: Data) => {
   const rulesLink =
-    "Click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
+    "**Click on the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
 
   const turnString = board.gameOver
     ? `The game is over! Click here to start a ${createNewGameLink()}.`
-    : `It's ${
+    : `It's **${
         board.currentTurn === "top" ? "top" : "bottom"
-      } side's turn! Choose a hole to move.`;
+      }** team's turn :muscle:! Choose a hole to move.`;
 
   const description =
-    "I am a student currently working on stuff I find fun (such as this game!)";
+    "I am a student currently working on stuff I find fun :octopus:";
 
   return [
-    "# Hi, I'm Charles",
+    "# Hi, I'm Charles :v:",
     description,
-    "## Charles's community Mancala game",
+    "## :shell: Charles's community Mancala game",
     createStatBadges(data),
-    "This is Sungka, a Philippine mancala game. Anyone is free to participate! " +
+    "This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!" +
       rulesLink,
-    "Direction of sowing is counter-clockwise (top goes to the left, bottom goes to the right).",
+    "Direction of sowing is **counter-clockwise** (top goes to the left, bottom goes to the right).",
     turnString,
     createTable(board),
     createRecentMoves(data),
