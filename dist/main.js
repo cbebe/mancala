@@ -21,14 +21,9 @@ function writeToFiles(board, data) {
     fs.writeFileSync("./README.md", createReadme(board, data));
 }
 // Main script
-jsonfile.readFile(boardFile, (err, board) => {
-    if (err)
-        console.error(err);
-    const envTitle = process.argv[2];
-    const envUser = process.env.EVENT_USER_LOGIN;
-    const title = envTitle || "sungka|new";
-    const username = envUser || "cbebe";
-    const args = getArgs(title);
+function parseMove(board) {
+    const username = process.env.EVENT_USER_LOGIN || "cbebe";
+    const args = getArgs(process.argv[2] || "sungka|new");
     const restartGame = args[0] === "new";
     const newBoard = restartGame
         ? newGame(board)
@@ -40,11 +35,16 @@ jsonfile.readFile(boardFile, (err, board) => {
         if (!restartGame) {
             newData = updateAfterTurn(newData, username, args[0], Number(args[1]));
             if (newBoard.gameOver)
-                newData = updateAfterGame(newData, newBoard.currentTurn);
+                newData = updateAfterGame(newData, newBoard);
         }
         else {
             newData.mostRecentMoves = [];
         }
         writeToFiles(newBoard, newData);
     });
+}
+jsonfile.readFile(boardFile, (err, board) => {
+    if (err)
+        console.error(err);
+    parseMove(board);
 });

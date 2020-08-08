@@ -1,8 +1,12 @@
-export function equalBoards(b1, b2) {
-    // i don't wanna compare arrays >:)
-    if (b1.top.toString() !== b2.top.toString())
+function compareNumArrays(arr1, arr2) {
+    if (arr1.length !== arr2.length)
         return false;
-    if (b1.bot.toString() !== b2.bot.toString())
+    return arr1.every((num, idx) => num === arr2[idx]);
+}
+export function equalBoards(b1, b2) {
+    if (!compareNumArrays(b1.top, b2.top))
+        return false;
+    if (!compareNumArrays(b1.bot, b2.bot))
         return false;
     if (b1.currentTurn !== b2.currentTurn)
         return false;
@@ -29,6 +33,7 @@ const newBoard = {
         bot: 0,
     },
     gameOver: false,
+    turnsPlayed: 0,
 };
 export function newGame(board) {
     return board.gameOver ? newBoard : board;
@@ -83,6 +88,8 @@ export function makeMove(board, side, holeIdx) {
     const enemyHasMoves = hasMoves(board, otherSide);
     const moveAgain = (extraMove && playerHasMoves) || !enemyHasMoves;
     newBoard.currentTurn = moveAgain ? side : otherSide;
+    if (!moveAgain)
+        ++newBoard.turnsPlayed;
     if (!(playerHasMoves || enemyHasMoves)) {
         newBoard.gameOver = true;
         newBoard.currentTurn = getWinner(newBoard.scores);
