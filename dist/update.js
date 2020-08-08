@@ -5,7 +5,7 @@ export const updatePlayers = (players, currentPlayer) => {
         ++players[currentPlayer];
     return players;
 };
-export const updateMostRecent = (moveArray, moveObj) => {
+export const updateMostRecentMoves = (moveArray, moveObj) => {
     moveArray.unshift(moveObj);
     return moveArray.slice(0, 3);
 };
@@ -13,11 +13,24 @@ export const updateAfterTurn = (data, currentPlayer, side, idx) => {
     data.players = updatePlayers(data.players, currentPlayer);
     ++data.games.totalMoves;
     const move = { name: currentPlayer, side, idx };
-    data.mostRecentMoves = updateMostRecent(data.mostRecentMoves, move);
+    data.mostRecentMoves = updateMostRecentMoves(data.mostRecentMoves, move);
     return data;
 };
-export const updateAfterGame = (data, winner) => {
+export const updateMostRecentGames = (mostRecentGames, board) => {
+    const gameRecord = {
+        scores: {
+            top: board.scores.top,
+            bot: board.scores.bot,
+        },
+        turnsPlayed: board.turnsPlayed,
+    };
+    mostRecentGames.push(gameRecord);
+    return mostRecentGames;
+};
+export const updateAfterGame = (data, board) => {
+    const winner = board.currentTurn;
     ++data.games.totalGames;
     ++data.games.wins[winner];
+    data.mostRecentGames = updateMostRecentGames(data.mostRecentGames, board);
     return data;
 };
