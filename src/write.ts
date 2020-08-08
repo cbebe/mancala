@@ -98,11 +98,12 @@ const createStatBadges = (data: Data) => {
 };
 
 export const createRecentGames = (mostRecentGames: GameRecord[]) => {
+  const heading = "**Most Recent Games**\n";
   const head = "|Top Score|Bottom Score|Turns Played|\n|-|-|-|";
   const games = mostRecentGames.map(
     ({ scores, turnsPlayed }) => `|${scores.top}|${scores.bot}|${turnsPlayed}|`
   );
-  return [head, ...games].join("\n");
+  return [heading, head, ...games].join("\n");
 };
 
 export const createReadme = (board: Board, data: Data) => {

@@ -70,9 +70,10 @@ const createStatBadges = (data) => {
         .join("\n");
 };
 export const createRecentGames = (mostRecentGames) => {
+    const heading = "**Most Recent Games**\n";
     const head = "|Top Score|Bottom Score|Turns Played|\n|-|-|-|";
     const games = mostRecentGames.map(({ scores, turnsPlayed }) => `|${scores.top}|${scores.bot}|${turnsPlayed}|`);
-    return [head, ...games].join("\n");
+    return [heading, head, ...games].join("\n");
 };
 export const createReadme = (board, data) => {
     const rulesLink = " **Click on one of the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
