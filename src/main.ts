@@ -26,19 +26,16 @@ function writeToFiles(board: Board, data: Data) {
 
 // Main script
 
-jsonfile.readFile(boardFile, (err: Error, board: Board) => {
-  if (err) console.error(err);
-
-  const envTitle = process.argv[2];
-  const envUser = process.env.EVENT_USER_LOGIN;
-  const title = envTitle || "sungka|new";
-  const username = envUser || "cbebe";
-  const args = getArgs(title);
+function parseMove(board: Board) {
+  const username = process.env.EVENT_USER_LOGIN || "cbebe";
+  const args = getArgs(process.argv[2] || "sungka|new");
 
   const restartGame = args[0] === "new";
+
   const newBoard = restartGame
     ? newGame(board)
     : makeMove(board, <Side>args[0], Number(args[1]));
+
   jsonfile.readFile(dataFile, (err: Error, data: Data) => {
     let newData = { ...data };
     if (err) console.error(err);
@@ -51,12 +48,16 @@ jsonfile.readFile(boardFile, (err: Error, board: Board) => {
         Number(args[1])
       );
 
-      if (newBoard.gameOver)
-        newData = updateAfterGame(newData, newBoard.currentTurn);
+      if (newBoard.gameOver) newData = updateAfterGame(newData, newBoard);
     } else {
       newData.mostRecentMoves = [];
     }
 
     writeToFiles(newBoard, newData);
   });
+}
+
+jsonfile.readFile(boardFile, (err: Error, board: Board) => {
+  if (err) console.error(err);
+  parseMove(board);
 });
