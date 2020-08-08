@@ -1,9 +1,13 @@
 import { Board, Scores, Side } from "./interfaces";
 
+function compareNumArrays(arr1: number[], arr2: number[]) {
+  if (arr1.length !== arr2.length) return false;
+  return arr1.every((num, idx) => num === arr2[idx]);
+}
+
 export function equalBoards(b1: Board, b2: Board) {
-  // i don't wanna compare arrays >:)
-  if (b1.top.toString() !== b2.top.toString()) return false;
-  if (b1.bot.toString() !== b2.bot.toString()) return false;
+  if (!compareNumArrays(b1.top, b2.top)) return false;
+  if (!compareNumArrays(b1.bot, b2.bot)) return false;
 
   if (b1.currentTurn !== b2.currentTurn) return false;
   if (b1.scores.top !== b2.scores.top) return false;
