@@ -6,7 +6,8 @@ const board = (
   bot: number[],
   currentTurn: Side | "draw",
   scores: [number, number] = [0, 0],
-  gameOver = false
+  gameOver = false,
+  turnsPlayed = 0
 ): Board => {
   return {
     currentTurn,
@@ -14,6 +15,7 @@ const board = (
     bot,
     scores: { top: scores[0], bot: scores[1] },
     gameOver,
+    turnsPlayed,
   };
 };
 
@@ -88,5 +90,19 @@ test("Getting a draw", () => {
   const i = board(empty(), [0, 0, 0, 0, 0, 0, 1], "bot", [1, 0]);
   const e = board(empty(), empty(), "draw", [1, 1], true);
   const o = makeMove(i, "bot", 6);
+  expect(equalBoards(o, e)).toBe(true);
+});
+
+test("Increment turns played", () => {
+  const i = board([0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], "top");
+  const e = board(
+    [0, 0, 1, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0, 0, 0],
+    "bot",
+    [0, 0],
+    false,
+    1
+  );
+  const o = makeMove(i, "top", 1);
   expect(equalBoards(o, e)).toBe(true);
 });

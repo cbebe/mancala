@@ -14,6 +14,7 @@ export function equalBoards(b1: Board, b2: Board) {
   if (b1.scores.bot !== b2.scores.bot) return false;
 
   if (b1.gameOver !== b2.gameOver) return false;
+  if (b1.turnsPlayed === b2.turnsPlayed) return false;
 
   return true;
 }

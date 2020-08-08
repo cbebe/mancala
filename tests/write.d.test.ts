@@ -11,7 +11,8 @@ test("Replace spaces with plus", () => {
 test("Create table for recent games", () => {
   const input: GameRecord[] = [{ scores: { top: 1, bot: 0 }, turnsPlayed: 2 }];
   const output = createRecentGames(input);
-  const expected = "|Top Score|Bottom Score|Turns Played|\n|-|-|-|\n|1|0|2|";
+  const expected =
+    "**Most Recent Games**\n\n|Top Score|Bottom Score|Turns Played|\n|-|-|-|\n|1|0|2|";
   expect(output).toBe(expected);
 });
 
