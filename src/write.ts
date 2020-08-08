@@ -1,4 +1,4 @@
-import { Board, Data } from "./interfaces";
+import { Board, Data, GameRecord, MoveObject } from "./interfaces";
 const instruction = "Just push 'Submit new issue' without changing the title";
 
 export const createHTTPText = (text: string, plus = false) => {
@@ -63,10 +63,10 @@ const createUserLink = (name: string) => {
   return `[@${name}](https://github.com/${name})`;
 };
 
-const createRecentMoves = (data: Data) => {
+const createRecentMoves = (mostRecentMoves: MoveObject[]) => {
   const heading = "**Most Recent Moves**\n\n";
   let tableStr = "|Username|Side|Hole Index|\n|-|-|-|\n";
-  data.mostRecentMoves.forEach(({ name, side, idx }) => {
+  mostRecentMoves.forEach(({ name, side, idx }) => {
     tableStr += `|${createUserLink(name)}|${side}|${idx}|\n`;
   });
   return heading + tableStr;
@@ -97,6 +97,14 @@ const createStatBadges = (data: Data) => {
     .join("\n");
 };
 
+export const createRecentGames = (mostRecentGames: GameRecord[]) => {
+  const head = "|Top Score|Bottom Score|Turns Played|\n|-|-|-|";
+  const games = mostRecentGames.map(
+    ({ scores, turnsPlayed }) => `|${scores.top}|${scores.bot}|${turnsPlayed}|`
+  );
+  return [head, ...games].join("\n");
+};
+
 export const createReadme = (board: Board, data: Data) => {
   const rulesLink =
     " **Click on one of the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
@@ -121,6 +129,7 @@ export const createReadme = (board: Board, data: Data) => {
     "Direction of sowing is **counter-clockwise** (top goes to the left, bottom goes to the right).",
     turnString,
     createTable(board),
-    createRecentMoves(data),
+    createRecentMoves(data.mostRecentMoves),
+    createRecentGames(data.mostRecentGames),
   ].join("\n\n");
 };
