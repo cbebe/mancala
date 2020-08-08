@@ -13,23 +13,7 @@
     },
     "totalMoves": 93
   },
-  "mostRecentMoves": [
-    {
-      "name": "cbebe",
-      "side": "top",
-      "idx": 6
-    },
-    {
-      "name": "cbebe",
-      "side": "top",
-      "idx": 5
-    },
-    {
-      "name": "cbebe",
-      "side": "top",
-      "idx": 4
-    }
-  ],
+  "mostRecentMoves": [],
   "mostRecentGames": [
     {
       "scores": {
