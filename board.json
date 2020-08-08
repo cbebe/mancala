@@ -7,7 +7,7 @@
     0,
     0,
     0,
-    1
+    0
   ],
   "bot": [
     0,
@@ -19,9 +19,9 @@
     0
   ],
   "scores": {
-    "top": 60,
+    "top": 61,
     "bot": 37
   },
-  "gameOver": false,
+  "gameOver": true,
   "turnsPlayed": 69
 }
