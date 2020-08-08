@@ -1,4 +1,11 @@
-import { MoveObject, Players, Data, Side } from "./interfaces";
+import {
+  MoveObject,
+  Players,
+  Data,
+  Side,
+  Board,
+  GameRecord,
+} from "./interfaces";
 
 export const updatePlayers = (players: Players, currentPlayer: string) => {
   if (!players[currentPlayer]) players[currentPlayer] = 1;
@@ -6,7 +13,7 @@ export const updatePlayers = (players: Players, currentPlayer: string) => {
   return players;
 };
 
-export const updateMostRecent = (
+export const updateMostRecentMoves = (
   moveArray: MoveObject[],
   moveObj: MoveObject
 ) => {
@@ -23,12 +30,30 @@ export const updateAfterTurn = (
   data.players = updatePlayers(data.players, currentPlayer);
   ++data.games.totalMoves;
   const move = { name: currentPlayer, side, idx };
-  data.mostRecentMoves = updateMostRecent(data.mostRecentMoves, move);
+  data.mostRecentMoves = updateMostRecentMoves(data.mostRecentMoves, move);
   return data;
 };
 
-export const updateAfterGame = (data: Data, winner: Side | "draw") => {
+export const updateMostRecentGames = (
+  mostRecentGames: GameRecord[],
+  board: Board
+) => {
+  const gameRecord: GameRecord = {
+    scores: {
+      top: board.scores.top,
+      bot: board.scores.bot,
+    },
+    turnsPlayed: board.turnsPlayed,
+  };
+
+  mostRecentGames.push(gameRecord);
+  return mostRecentGames;
+};
+
+export const updateAfterGame = (data: Data, board: Board) => {
+  const winner = board.currentTurn;
   ++data.games.totalGames;
   ++data.games.wins[winner];
+  data.mostRecentGames = updateMostRecentGames(data.mostRecentGames, board);
   return data;
 };

@@ -35,6 +35,7 @@ const newBoard: Board = {
     bot: 0,
   },
   gameOver: false,
+  turnsPlayed: 0,
 };
 
 export function newGame(board: Board): Board {
@@ -99,6 +100,7 @@ export function makeMove(board: Board, side: Side, holeIdx: number) {
 
   const moveAgain = (extraMove && playerHasMoves) || !enemyHasMoves;
   newBoard.currentTurn = moveAgain ? side : otherSide;
+  if (!moveAgain) ++newBoard.turnsPlayed;
 
   if (!(playerHasMoves || enemyHasMoves)) {
     newBoard.gameOver = true;

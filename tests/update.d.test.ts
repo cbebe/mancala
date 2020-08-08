@@ -2,9 +2,9 @@ import {
   updatePlayers,
   updateAfterGame,
   updateAfterTurn,
-  updateMostRecent,
+  updateMostRecentMoves,
 } from "../src/update";
-import { Data, MoveObject } from "../src/interfaces";
+import { Data, MoveObject, Board } from "../src/interfaces";
 
 const zeroGames = {
   totalGames: 0,
@@ -33,6 +33,7 @@ test("Updating data after game", () => {
     players: {},
     games: zeroGames,
     mostRecentMoves: [],
+    mostRecentGames: [],
   };
   const expected: Data = {
     players: {},
@@ -46,8 +47,20 @@ test("Updating data after game", () => {
       totalMoves: 1,
     },
     mostRecentMoves: [],
+    mostRecentGames: [{ scores: { top: 1, bot: 0 }, turnsPlayed: 1 }],
   };
-  const output = updateAfterGame(input, "top");
+  const testBoard: Board = {
+    top: [0, 0, 0, 0, 0, 0, 0],
+    bot: [0, 0, 0, 0, 0, 0, 0],
+    scores: {
+      top: 1,
+      bot: 0,
+    },
+    currentTurn: "top",
+    gameOver: true,
+    turnsPlayed: 1,
+  };
+  const output = updateAfterGame(input, testBoard);
   expect(output.toString()).toBe(expected.toString());
 });
 
@@ -56,6 +69,7 @@ test("Updating data after turn", () => {
     players: {},
     games: zeroGames,
     mostRecentMoves: [],
+    mostRecentGames: [],
   };
   const expected: Data = {
     players: { cbebe: 1 },
@@ -69,6 +83,7 @@ test("Updating data after turn", () => {
       totalMoves: 1,
     },
     mostRecentMoves: [{ name: "cbebe", side: "top", idx: 0 }],
+    mostRecentGames: [],
   };
   const output: Data = updateAfterTurn(input, "cbebe", "top", 0);
   expect(output.toString()).toBe(expected.toString());
@@ -85,7 +100,7 @@ test("Clips most recent players array", () => {
     { name: "cbebe3", side: "top", idx: 2 },
     { name: "cbebe2", side: "bot", idx: 1 },
   ];
-  const output = updateMostRecent(input, {
+  const output = updateMostRecentMoves(input, {
     name: "cbebe4",
     side: "bot",
     idx: 3,

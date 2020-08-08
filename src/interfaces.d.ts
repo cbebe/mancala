@@ -10,8 +10,8 @@ export interface Board {
   top: number[];
   bot: number[];
   scores: Scores;
-
   gameOver: boolean;
+  turnsPlayed: number;
 }
 
 export interface MoveObject {
@@ -22,6 +22,14 @@ export interface MoveObject {
 
 export interface Players {
   [key: string]: number;
+}
+
+export interface GameRecord {
+  scores: {
+    top: number;
+    bot: number;
+  };
+  turnsPlayed: number;
 }
 
 export interface Data {
@@ -36,4 +44,5 @@ export interface Data {
     totalMoves: number;
   };
   mostRecentMoves: MoveObject[];
+  mostRecentGames: GameRecord[];
 }
