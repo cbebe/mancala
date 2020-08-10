@@ -9,10 +9,7 @@ import { updateAfterTurn, updateAfterGame } from "./update.js";
 const boardFile = "./board.json";
 const dataFile = "./data.json";
 
-function getArgs(title: string) {
-  const args = title.split("|");
-  return args.slice(1);
-}
+const getArgs = (title: string) => title.split("|").slice(1);
 
 function writeToFiles(board: Board, data: Data) {
   jsonfile.writeFile(boardFile, board, { spaces: 2 }, (err: Error) => {
@@ -37,9 +34,9 @@ function parseMove(board: Board) {
     : makeMove(board, <Side>args[0], Number(args[1]));
 
   jsonfile.readFile(dataFile, (err: Error, data: Data) => {
-    let newData = { ...data };
     if (err) console.error(err);
 
+    let newData = { ...data };
     if (!restartGame) {
       newData = updateAfterTurn(
         newData,
