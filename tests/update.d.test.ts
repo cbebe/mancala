@@ -31,21 +31,19 @@ test("Check if function updates player move count", () => {
 test("Updating data after game", () => {
   const input: Data = {
     players: {},
-    games: zeroGames,
+    ...zeroGames,
     mostRecentMoves: [],
     mostRecentGames: [],
   };
   const expected: Data = {
     players: {},
-    games: {
-      totalGames: 1,
-      wins: {
-        top: 1,
-        bot: 0,
-        draw: 0,
-      },
-      totalMoves: 1,
+    totalGames: 1,
+    wins: {
+      top: 1,
+      bot: 0,
+      draw: 0,
     },
+    totalMoves: 1,
     mostRecentMoves: [],
     mostRecentGames: [{ scores: { top: 1, bot: 0 }, turnsPlayed: 1 }],
   };
@@ -67,21 +65,19 @@ test("Updating data after game", () => {
 test("Updating data after turn", () => {
   const input: Data = {
     players: {},
-    games: zeroGames,
+    ...zeroGames,
     mostRecentMoves: [],
     mostRecentGames: [],
   };
   const expected: Data = {
     players: { cbebe: 1 },
-    games: {
-      totalGames: 0,
-      wins: {
-        top: 0,
-        bot: 0,
-        draw: 0,
-      },
-      totalMoves: 1,
+    totalGames: 0,
+    wins: {
+      top: 0,
+      bot: 0,
+      draw: 0,
     },
+    totalMoves: 1,
     mostRecentMoves: [{ name: "cbebe", side: "top", idx: 0 }],
     mostRecentGames: [],
   };
