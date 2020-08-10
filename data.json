@@ -4,15 +4,13 @@
     "hughjanusonly": 7,
     "hugh-jazz": 23
   },
-  "games": {
-    "totalGames": 1,
-    "wins": {
-      "top": 1,
-      "bot": 0,
-      "draw": 0
-    },
-    "totalMoves": 90
+  "totalGames": 1,
+  "wins": {
+    "top": 1,
+    "bot": 0,
+    "draw": 0
   },
+  "totalMoves": 90,
   "mostRecentMoves": [
     {
       "name": "cbebe",

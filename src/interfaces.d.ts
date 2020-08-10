@@ -34,15 +34,13 @@ export interface GameRecord {
 
 export interface Data {
   players: Players;
-  games: {
-    totalGames: number;
-    wins: {
-      top: number;
-      bot: number;
-      draw: number;
-    };
-    totalMoves: number;
+  totalGames: number;
+  wins: {
+    top: number;
+    bot: number;
+    draw: number;
   };
+  totalMoves: number;
   mostRecentMoves: MoveObject[];
   mostRecentGames: GameRecord[];
 }
