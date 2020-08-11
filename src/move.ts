@@ -39,67 +39,84 @@ export const newGame = (board: Board) => (board.gameOver ? newBoard : board);
 const getWinner = ({ top, bot }: Scores) =>
   top > bot ? "top" : bot > top ? "bot" : "draw";
 
-function evaluateAfterMove(board: Board, side: Side, extraMove: boolean) {
-  const otherSide = getOtherSide(side);
-  const playerHasMoves = hasMoves(board, side);
-  const enemyHasMoves = hasMoves(board, otherSide);
+export class BoardMove {
+  board: Board;
+  side: Side;
 
-  const moveAgain = (extraMove && playerHasMoves) || !enemyHasMoves;
-  board.currentTurn = moveAgain ? side : otherSide;
-
-  if (!moveAgain) ++board.turnsPlayed;
-
-  if (!(playerHasMoves || enemyHasMoves)) {
-    board.gameOver = true;
-    board.currentTurn = getWinner(board.scores);
-    ++board.turnsPlayed;
+  constructor(board: Board, side: Side) {
+    this.board = board;
+    this.side = side;
   }
 
-  return board;
-}
+  makeMove(holeIdx: number) {
+    const outOfRange = holeIdx < 0 || holeIdx > 6;
+    const invalidTurn = this.side !== this.board.currentTurn;
 
-export function makeMove(board: Board, side: Side, holeIdx: number) {
-  const outOfRange = holeIdx < 0 || holeIdx > 6;
-  const invalidTurn = side !== board.currentTurn;
+    let shells = this.board[this.side][holeIdx];
+    if (!shells || outOfRange || invalidTurn || this.board.gameOver)
+      return this.board;
 
-  let shells = board[side][holeIdx];
-  if (!shells || outOfRange || invalidTurn || board.gameOver) return board;
-
-  const newBoard = { ...board };
-  const otherSide = getOtherSide(side);
-  newBoard[side][holeIdx] = 0;
-  let startingIdx = holeIdx + 1;
-  let currentSide = side;
-  let extraMove = false;
-  while (shells > 0) {
-    for (let i = startingIdx; shells && i < 7; ++i) {
-      // last stone mechanics
-      const lastStone = shells === 1;
-      const nextPitEmpty = !newBoard[currentSide][i];
-      const otherPitEmpty = !newBoard[otherSide][6 - i];
-      const canCapture = nextPitEmpty && !otherPitEmpty && currentSide === side;
-
-      if (lastStone && !nextPitEmpty) {
-        shells = ++newBoard[currentSide][i];
-        newBoard[currentSide][i] = 0;
-      } else if (lastStone && canCapture) {
-        newBoard.scores[side] += ++newBoard[otherSide][6 - i];
-        newBoard[otherSide][6 - i] = 0;
+    this.board[this.side][holeIdx] = 0;
+    let startingIdx = holeIdx + 1;
+    let currentSide = this.side;
+    let extraMove = false;
+    while (shells > 0) {
+      shells = this.distributeStones(startingIdx, shells, currentSide);
+      if (shells && currentSide === this.side) {
+        ++this.board.scores[this.side];
         --shells;
+        if (shells === 0) extraMove = true;
+      }
+      currentSide = getOtherSide(currentSide);
+      startingIdx = 0;
+    }
+
+    return this.evaluateAfterMove(extraMove);
+  }
+
+  distributeStones(startingIdx: number, shells: number, currentSide: Side) {
+    const otherSide = getOtherSide(this.side);
+    let shellCount = shells;
+    for (let i = startingIdx; shellCount && i < 7; ++i) {
+      // last shell mechanics
+      const lastShell = shellCount === 1;
+      const nextPitEmpty = !this.board[currentSide][i];
+      const otherPitEmpty = !this.board[otherSide][6 - i];
+      const canCapture =
+        nextPitEmpty && !otherPitEmpty && currentSide === this.side;
+
+      if (lastShell && !nextPitEmpty) {
+        shellCount = ++this.board[currentSide][i];
+        this.board[currentSide][i] = 0;
+      } else if (lastShell && canCapture) {
+        this.board.scores[this.side] += ++this.board[otherSide][6 - i];
+        this.board[otherSide][6 - i] = 0;
+        --shellCount;
       } else {
-        --shells;
-        ++newBoard[currentSide][i];
+        --shellCount;
+        ++this.board[currentSide][i];
       }
     }
 
-    if (shells && currentSide === side) {
-      ++newBoard.scores[side];
-      --shells;
-      if (shells === 0) extraMove = true;
-    }
-    currentSide = getOtherSide(currentSide);
-    startingIdx = 0;
+    return shellCount;
   }
 
-  return evaluateAfterMove(newBoard, side, extraMove);
+  evaluateAfterMove(extraMove: boolean) {
+    const otherSide = getOtherSide(this.side);
+    const playerHasMoves = hasMoves(this.board, this.side);
+    const enemyHasMoves = hasMoves(this.board, otherSide);
+
+    const moveAgain = (extraMove && playerHasMoves) || !enemyHasMoves;
+    this.board.currentTurn = moveAgain ? this.side : otherSide;
+
+    if (!moveAgain) ++this.board.turnsPlayed;
+
+    if (!(playerHasMoves || enemyHasMoves)) {
+      this.board.gameOver = true;
+      this.board.currentTurn = getWinner(this.board.scores);
+      ++this.board.turnsPlayed;
+    }
+
+    return this.board;
+  }
 }

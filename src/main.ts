@@ -1,8 +1,8 @@
 import jsonfile from "jsonfile";
 import fs from "fs";
 
-import { Record, Board, Data, Side } from "./interfaces";
-import { makeMove, newGame } from "./move.js";
+import { Record, Side } from "./interfaces";
+import { BoardMove, newGame } from "./move.js";
 import { createReadme } from "./write.js";
 import { updateAfterTurn, updateAfterGame } from "./update.js";
 
@@ -24,10 +24,17 @@ function parseMove({ data, board }: Record) {
   const args = getArgs(process.argv[2] || "sungka|new");
 
   const restartGame = args[0] === "new";
+  const aiMove = args[0] === "ai";
 
-  const newBoard = restartGame
-    ? newGame(board)
-    : makeMove(board, <Side>args[0], Number(args[1]));
+  let newBoard, moveBoard;
+  if (restartGame) {
+    newBoard = newGame(board);
+  } else if (aiMove) {
+  } else {
+    moveBoard = new BoardMove(board, <Side>args[0]);
+    moveBoard.makeMove(Number(args[1]));
+    newBoard = moveBoard.board;
+  }
 
   let newData = { ...data };
   if (!restartGame) {
