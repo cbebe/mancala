@@ -44,3 +44,8 @@ export interface Data {
   mostRecentMoves: MoveObject[];
   mostRecentGames: GameRecord[];
 }
+
+export interface Record {
+  data: Data;
+  board: Board;
+}

@@ -1,4 +1,4 @@
-import { Board, Data, GameRecord, MoveObject } from "./interfaces";
+import { Board, Data, Record, GameRecord, MoveObject } from "./interfaces";
 const instruction = "Just push 'Submit new issue' without changing the title";
 const pleaseWait =
   ". Please wait 30 seconds to check if you have an extra move or let someone else play the turn.";
@@ -97,7 +97,7 @@ export function createRecentGames(mostRecentGames: GameRecord[]) {
   return [heading, tableHead, ...games].join("\n");
 }
 
-export function createReadme(board: Board, data: Data) {
+export function createReadme({ board, data }: Record) {
   const rulesLink =
     "**Click on one of the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
 
@@ -107,8 +107,10 @@ export function createReadme(board: Board, data: Data) {
         board.currentTurn === "top" ? "top" : "bottom"
       }** team's turn! :muscle: Choose a hole to move.`;
 
-  const description =
-    "I am a student currently working on stuff I find fun :octopus:";
+  const description = [
+    "I am a student currently working on stuff I find fun :octopus:",
+    "Looking for Co-op/internships for Jan-August 2021 :briefcase:",
+  ];
 
   return [
     "# Hi, I'm Charles :v:",
