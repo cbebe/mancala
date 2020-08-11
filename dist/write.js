@@ -77,7 +77,7 @@ export function createReadme({ board, data }) {
     const description = [
         "I am a student currently working on stuff I find fun :octopus:",
         "Looking for Co-op/internships for **January-August 2021** :briefcase:",
-    ].join("\n");
+    ].join("  \n");
     return [
         "# Hi, I'm Charles :v:",
         description,
