@@ -1,27 +1,27 @@
 {
   "currentTurn": "top",
   "top": [
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
   ],
   "bot": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
   ],
   "scores": {
-    "top": 60,
-    "bot": 37
+    "top": 0,
+    "bot": 0
   },
   "gameOver": false,
-  "turnsPlayed": 69
+  "turnsPlayed": 0
 }
