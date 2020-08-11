@@ -1,5 +1,8 @@
 import { Board, Data, GameRecord, MoveObject } from "./interfaces";
 const instruction = "Just push 'Submit new issue' without changing the title";
+const pleaseWait =
+  ". Please wait 30 seconds to check if you have an extra move or let someone else play the turn.";
+const github = "https://github.com/";
 
 export const createHTTPText = (text: string, plus = false) =>
   text
@@ -8,10 +11,9 @@ export const createHTTPText = (text: string, plus = false) =>
     .replace(/\|/g, "%7C");
 
 const createIssueLink = (title: string, body: string, innerText: string) =>
-  `<a href="https://github.com/cbebe/chonka/issues/new?title=${title}&body=${body}">${innerText}</a>`;
+  `<a href="${github}cbebe/cbebe/issues/new?title=${title}&body=${body}">${innerText}</a>`;
 
-const createUserLink = (name: string) =>
-  `[@${name}](https://github.com/${name})`;
+const createUserLink = (name: string) => `[@${name}](${github + name})`;
 
 const parseStats = (data: Data) => [
   data.totalMoves,
@@ -23,15 +25,12 @@ const createBadgeLink = (text: string, number: number, colour: string) =>
   `![](https://img.shields.io/badge/${text}-${number}-${colour})`;
 
 function createMoveLink(pos: number, side: "top" | "bot", score: number) {
-  const text = createHTTPText(
-    `${instruction}. Please wait 30 seconds to check if you have an extra move or let someone else play the turn.`
-  );
-
+  const text = createHTTPText(instruction + pleaseWait);
   return createIssueLink(`sungka%7C${side}%7C${pos}&`, text, String(score));
 }
 
 function createNewGameLink() {
-  const text = createHTTPText(`${instruction} to start a new game.`);
+  const text = createHTTPText(instruction + " to start a new game.");
   return createIssueLink("sungka%7Cnew&", text, "new game");
 }
 
@@ -41,29 +40,25 @@ function createRow(board: Board, side: "top" | "bot") {
   let holeArray = [...board[side]];
   if (reversed) holeArray = holeArray.reverse();
 
-  return holeArray
-    .map(
-      (score, idx) =>
-        `<td>${
-          isTurn && score
-            ? createMoveLink(reversed ? 6 - idx : idx, side, score)
-            : score
-        }</td>`
-    )
-    .join("\n");
+  const rowStr = holeArray.map((shells, idx) => {
+    const needLink = isTurn && shells;
+    const pos = reversed ? 6 - idx : idx;
+    return `<td>${needLink ? createMoveLink(pos, side, shells) : shells}</td>`;
+  });
+
+  return rowStr.join("\n");
 }
 
 function createTable(board: Board) {
-  const tableHead =
-    "<table>\n<thead>\n<tr>\n<th>Top</th>\n" +
-    "<th colspan=7>Holes</th>\n<th>Bottom</th>\n</tr>\n</thead>\n<tbody>";
+  const score = (i: number) => `<td rowspan=2>${i}</td>`;
 
-  const topScore = `<tr>\n<td rowspan=2>${board.scores.top}</td>`;
-  const topRow = createRow(board, "top");
-  const botScore = `<td rowspan=2>${board.scores.bot}</td>\n</tr>\n<tr>`;
-  const botRow = createRow(board, "bot");
-
+  const tableHead = `<table>\n<thead>\n<tr>\n<th>Top</th>\n<th colspan=7>Holes</th>\n<th>Bottom</th>\n</tr>\n</thead>\n<tbody>`;
   const tableTail = "</tr>\n<tbody>\n</table>";
+
+  const topScore = `<tr>${score(board.scores.top)}\n`;
+  const topRow = createRow(board, "top");
+  const botScore = score(board.scores.bot) + "\n</tr>\n<tr>";
+  const botRow = createRow(board, "bot");
 
   return [tableHead, topScore, topRow, botScore, botRow, tableTail].join("\n");
 }
@@ -95,11 +90,11 @@ const createStatBadges = (data: Data) => {
 
 export function createRecentGames(mostRecentGames: GameRecord[]) {
   const heading = "**Most Recent Games**\n";
-  const head = "|Top Score|Bottom Score|Turns Played|\n|-|-|-|";
+  const tableHead = "|Top Score|Bottom Score|Turns Played|\n|-|-|-|";
   const games = mostRecentGames.map(
     ({ scores, turnsPlayed }) => `|${scores.top}|${scores.bot}|${turnsPlayed}|`
   );
-  return [heading, head, ...games].join("\n");
+  return [heading, tableHead, ...games].join("\n");
 }
 
 export function createReadme(board: Board, data: Data) {
