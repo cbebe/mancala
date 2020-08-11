@@ -109,7 +109,7 @@ export function createReadme({ board, data }: Record) {
 
   const description = [
     "I am a student currently working on stuff I find fun :octopus:",
-    "Looking for Co-op/internships for Jan-August 2021 :briefcase:",
+    "Looking for Co-op/internships for **January-August 2021** :briefcase:",
   ];
 
   return [
