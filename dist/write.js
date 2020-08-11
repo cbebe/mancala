@@ -1,63 +1,57 @@
 const instruction = "Just push 'Submit new issue' without changing the title";
-export const createHTTPText = (text, plus = false) => {
-    return text
-        .replace(/ /g, plus ? "+" : "%20")
-        .replace(/'/g, "%27")
-        .replace(/\|/g, "%7C");
-};
-const createIssueLink = (title, body, innerText) => {
-    return `<a href="https://github.com/cbebe/chonka/issues/new?title=${title}&body=${body}">${innerText}</a>`;
-};
-const createMoveLink = (pos, side, score) => {
-    const text = createHTTPText(`${instruction}. Please wait 30 seconds to check if you have an extra move or let someone else play the turn.`);
+const pleaseWait = ". Please wait 30 seconds to check if you have an extra move or let someone else play the turn.";
+const github = "https://github.com/";
+export const createHTTPText = (text, plus = false) => text
+    .replace(/ /g, plus ? "+" : "%20")
+    .replace(/'/g, "%27")
+    .replace(/\|/g, "%7C");
+const createIssueLink = (title, body, innerText) => `<a href="${github}cbebe/cbebe/issues/new?title=${title}&body=${body}">${innerText}</a>`;
+const createUserLink = (name) => `[@${name}](${github + name})`;
+const parseStats = (data) => [
+    data.totalMoves,
+    Object.keys(data.players).length,
+    data.totalGames,
+];
+const createBadgeLink = (text, number, colour) => `![](https://img.shields.io/badge/${text}-${number}-${colour})`;
+function createMoveLink(pos, side, score) {
+    const text = createHTTPText(instruction + pleaseWait);
     return createIssueLink(`sungka%7C${side}%7C${pos}&`, text, String(score));
-};
-const createNewGameLink = () => {
-    const text = createHTTPText(`${instruction} to start a new game.`);
+}
+function createNewGameLink() {
+    const text = createHTTPText(instruction + " to start a new game.");
     return createIssueLink("sungka%7Cnew&", text, "new game");
-};
-const createRow = (board, side) => {
+}
+function createRow(board, side) {
     const isTurn = side === board.currentTurn;
     const reversed = side === "top";
     let holeArray = [...board[side]];
-    holeArray = reversed ? holeArray.reverse() : holeArray;
-    return holeArray
-        .map((score, idx) => `<td>${isTurn && score
-        ? createMoveLink(reversed ? 6 - idx : idx, side, score)
-        : score}</td>\n`)
-        .join("");
-};
-const createTable = (board) => {
-    let tableStr = "<table>\n<thead>\n<tr>\n<th>Top</th>\n" +
-        "<th colspan=7>Holes</th>\n<th>Bottom</th>\n</tr>\n</thead>\n<tbody>\n";
-    const topScore = `<tr>\n<td rowspan=2>${board.scores.top}</td>\n`;
-    const topRow = createRow(board, "top");
-    const botScore = `<td rowspan=2>${board.scores.bot}</td>\n</tr>\n<tr>\n`;
-    const botRow = createRow(board, "bot");
-    tableStr +=
-        topScore + topRow + botScore + botRow + "</tr>\n<tbody>\n</table>\n";
-    return tableStr;
-};
-const createUserLink = (name) => {
-    return `[@${name}](https://github.com/${name})`;
-};
-const createRecentMoves = (mostRecentMoves) => {
-    const heading = "**Most Recent Moves**\n\n";
-    let tableStr = "|Username|Side|Hole Index|\n|-|-|-|\n";
-    mostRecentMoves.forEach(({ name, side, idx }) => {
-        tableStr += `|${createUserLink(name)}|${side}|${idx}|\n`;
+    if (reversed)
+        holeArray = holeArray.reverse();
+    const rowStr = holeArray.map((shells, idx) => {
+        const needLink = isTurn && shells;
+        const pos = reversed ? 6 - idx : idx;
+        return `<td>${needLink ? createMoveLink(pos, side, shells) : shells}</td>`;
     });
-    return heading + tableStr;
-};
-const parseStats = (data) => {
-    const moves = data.games.totalMoves;
-    const players = Object.keys(data.players).length;
-    const games = data.games.totalGames;
-    return [moves, players, games];
-};
-const createBadgeLink = (text, number, colour) => {
-    return `![](https://img.shields.io/badge/${text}-${number}-${colour})`;
-};
+    return rowStr.join("\n");
+}
+function createTable(board) {
+    const score = (i) => `<td rowspan=2>${i}</td>`;
+    const tableHead = `<table>\n<thead>\n<tr>\n<th>Top</th>\n<th colspan=7>Holes</th>\n<th>Bottom</th>\n</tr>\n</thead>\n<tbody>`;
+    const tableTail = "</tr>\n<tbody>\n</table>";
+    const topScore = `<tr>${score(board.scores.top)}\n`;
+    const topRow = createRow(board, "top");
+    const botScore = score(board.scores.bot) + "\n</tr>\n<tr>";
+    const botRow = createRow(board, "bot");
+    return [tableHead, topScore, topRow, botScore, botRow, tableTail].join("\n");
+}
+function createRecentMoves(mostRecentMoves) {
+    if (mostRecentMoves.length === 0)
+        return "";
+    const heading = "**Most Recent Moves**\n";
+    const tableHead = "|Username|Side|Hole Index|\n|-|-|-|";
+    const tableBody = mostRecentMoves.map(({ name, side, idx }) => `|${createUserLink(name)}|${side}|${idx}|`);
+    return [heading, tableHead, ...tableBody].join("\n");
+}
 const createStatBadges = (data) => {
     const stats = parseStats(data);
     const colours = ["blue", "red", "green"];
@@ -69,14 +63,14 @@ const createStatBadges = (data) => {
         .map((text, idx) => createBadgeLink(text, stats[idx], colours[idx]))
         .join("\n");
 };
-export const createRecentGames = (mostRecentGames) => {
+export function createRecentGames(mostRecentGames) {
     const heading = "**Most Recent Games**\n";
-    const head = "|Top Score|Bottom Score|Turns Played|\n|-|-|-|";
+    const tableHead = "|Top Score|Bottom Score|Turns Played|\n|-|-|-|";
     const games = mostRecentGames.map(({ scores, turnsPlayed }) => `|${scores.top}|${scores.bot}|${turnsPlayed}|`);
-    return [heading, head, ...games].join("\n");
-};
-export const createReadme = (board, data) => {
-    const rulesLink = " **Click on one of the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
+    return [heading, tableHead, ...games].join("\n");
+}
+export function createReadme(board, data) {
+    const rulesLink = "**Click on one of the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
     const turnString = board.gameOver
         ? `The game is over! :grin: Click here to start a ${createNewGameLink()}.`
         : `It's **${board.currentTurn === "top" ? "top" : "bottom"}** team's turn! :muscle: Choose a hole to move.`;
@@ -85,7 +79,7 @@ export const createReadme = (board, data) => {
         "# Hi, I'm Charles :v:",
         description,
         "## :shell: Charles's community Mancala game",
-        "![](sungka.png)",
+        `![](${github}cbebe/cbebe/blob/master/sungka.png)`,
         createStatBadges(data),
         "This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!",
         rulesLink,
@@ -95,4 +89,4 @@ export const createReadme = (board, data) => {
         createRecentMoves(data.mostRecentMoves),
         createRecentGames(data.mostRecentGames),
     ].join("\n\n");
-};
+}
