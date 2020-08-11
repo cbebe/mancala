@@ -22,10 +22,10 @@ const board = (
 const newArr = () => [7, 7, 7, 7, 7, 7, 7];
 const empty = () => [0, 0, 0, 0, 0, 0, 0];
 
-// when there's only one piece on the row
-const onePiece = (i: number) => {
+// when there's only one pit with shells on the row
+const onePit = (i: number, shells = 1) => {
   const arr = empty();
-  arr[i] = 1;
+  arr[i] = shells;
   return arr;
 };
 
@@ -38,7 +38,7 @@ test("Avalanche mechanic on own side", () => {
 });
 
 test("Avalance mechanic on both sides", () => {
-  const i = board([0, 0, 0, 5, 0, 0, 0], [6, 0, 0, 0, 0, 0, 0], "top");
+  const i = board(onePit(3, 5), onePit(0, 6), "top");
   const e = board(
     [0, 0, 0, 0, 1, 1, 1],
     [0, 1, 1, 1, 1, 1, 0],
@@ -51,7 +51,7 @@ test("Avalance mechanic on both sides", () => {
 });
 
 test("Capture mechanic", () => {
-  const i = board([0, 0, 0, 0, 0, 0, 9], [0, 0, 0, 0, 0, 0, 10], "top");
+  const i = board(onePit(6, 9), onePit(6, 10), "top");
   const e = board(empty(), [1, 1, 1, 1, 1, 1, 0], "bot", [13, 0], 1);
   const o = makeMove(i, "top", 6);
   expect(equalBoards(o, e)).toBe(true);
@@ -65,21 +65,21 @@ test("Extra move", () => {
 });
 
 test("No moves even when the current player has extra move", () => {
-  const i = board(onePiece(6), newArr(), "top");
+  const i = board(onePit(6), newArr(), "top");
   const e = board(empty(), newArr(), "bot", [1, 0], 1);
   const o = makeMove(i, "top", 6);
   expect(equalBoards(o, e)).toBe(true);
 });
 
 test("No moves for the other player", () => {
-  const i = board(empty(), onePiece(5), "bot");
-  const e = board(empty(), onePiece(6), "bot");
+  const i = board(empty(), onePit(5), "bot");
+  const e = board(empty(), onePit(6), "bot");
   const o = makeMove(i, "bot", 5);
   expect(equalBoards(o, e)).toBe(true);
 });
 
 test("Game over", () => {
-  const i = board(empty(), onePiece(6), "bot");
+  const i = board(empty(), onePit(6), "bot");
   const e = board(empty(), empty(), "bot", [0, 1], 1, true);
   const o = makeMove(i, "bot", 6);
   expect(equalBoards(o, e)).toBe(true);
@@ -100,15 +100,15 @@ test("Cancel attempt to create new game", () => {
 });
 
 test("Getting a draw", () => {
-  const i = board(empty(), onePiece(6), "bot", [1, 0]);
+  const i = board(empty(), onePit(6), "bot", [1, 0]);
   const e = board(empty(), empty(), "draw", [1, 1], 1, true);
   const o = makeMove(i, "bot", 6);
   expect(equalBoards(o, e)).toBe(true);
 });
 
 test("Increment turns played", () => {
-  const i = board(onePiece(1), onePiece(1), "top");
-  const e = board(onePiece(2), onePiece(1), "bot", [0, 0], 1);
+  const i = board(onePit(1), onePit(1), "top");
+  const e = board(onePit(2), onePit(1), "bot", [0, 0], 1);
   const o = makeMove(i, "top", 1);
   expect(equalBoards(o, e)).toBe(true);
 });
