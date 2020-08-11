@@ -6,6 +6,11 @@ const move = (user: string, side: string, idx: number) =>
 
 const restart = (user: string) => `@${user} started a new game`;
 
+const ai = (user: string) => `Computer played a turn on behalf of @${user}`;
+
+const newGame = side === "new";
+const aiTurn = side === "ai";
+
 process.stdout.write(
-  side !== "new" ? move(user, side, Number(idx)) : restart(user)
+  newGame ? restart(user) : aiTurn ? ai(user) : move(user, side, Number(idx))
 );
