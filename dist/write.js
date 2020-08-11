@@ -77,10 +77,10 @@ export function createReadme({ board, data }) {
     const description = [
         "I am a student currently working on stuff I find fun :octopus:",
         "Looking for Co-op/internships for **January-August 2021** :briefcase:",
-    ];
+    ].join("\n");
     return [
         "# Hi, I'm Charles :v:",
-        ...description,
+        description,
         "## :shell: Charles's community Mancala game",
         `![](${github}cbebe/cbebe/blob/master/sungka.png)`,
         createStatBadges(data),
