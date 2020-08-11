@@ -114,7 +114,7 @@ export function createReadme({ board, data }: Record) {
 
   return [
     "# Hi, I'm Charles :v:",
-    description,
+    ...description,
     "## :shell: Charles's community Mancala game",
     `![](${github}cbebe/cbebe/blob/master/sungka.png)`,
     createStatBadges(data),

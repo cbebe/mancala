@@ -39,13 +39,9 @@ test("Avalanche mechanic on own side", () => {
 
 test("Avalance mechanic on both sides", () => {
   const i = board(onePit(3, 5), onePit(0, 6), "top");
-  const e = board(
-    [0, 0, 0, 0, 1, 1, 1],
-    [0, 1, 1, 1, 1, 1, 0],
-    "bot",
-    [3, 0],
-    1
-  );
+  const top = [0, 0, 0, 0, 1, 1, 1];
+  const bot = [0, 1, 1, 1, 1, 1, 0];
+  const e = board(top, bot, "bot", [3, 0], 1);
   const o = makeMove(i, "top", 3);
   expect(equalBoards(o, e)).toBe(true);
 });
