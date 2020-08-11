@@ -3,7 +3,7 @@
     "players": {
       "cbebe": 62,
       "hughjanusonly": 7,
-      "hugh-jazz": 25
+      "hugh-jazz": 26
     },
     "totalGames": 2,
     "wins": {
@@ -11,8 +11,13 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 98,
+    "totalMoves": 99,
     "mostRecentMoves": [
+      {
+        "name": "hugh-jazz",
+        "side": "bot",
+        "idx": 2
+      },
       {
         "name": "hugh-jazz",
         "side": "bot",
@@ -22,11 +27,6 @@
         "name": "cbebe",
         "side": "top",
         "idx": 0
-      },
-      {
-        "name": "cbebe",
-        "side": "top",
-        "idx": 4
       }
     ],
     "mostRecentGames": [
@@ -40,30 +40,30 @@
     ]
   },
   "board": {
-    "currentTurn": "bot",
+    "currentTurn": "top",
     "top": [
+      2,
+      5,
       1,
       4,
       0,
-      3,
-      0,
-      3,
-      0
+      4,
+      1
     ],
     "bot": [
-      0,
-      0,
-      15,
-      15,
       1,
-      15,
-      15
+      1,
+      0,
+      16,
+      2,
+      16,
+      16
     ],
     "scores": {
       "top": 25,
-      "bot": 1
+      "bot": 4
     },
     "gameOver": false,
-    "turnsPlayed": 1
+    "turnsPlayed": 2
   }
 }
