@@ -7,9 +7,9 @@ Looking for Co-op/internships for **January-August 2021** :briefcase:
 
 ![](https://github.com/cbebe/cbebe/blob/master/sungka.png)
 
-![](https://img.shields.io/badge/Total%20moves%20played-121-blue)
+![](https://img.shields.io/badge/Total%20moves%20played-122-blue)
 ![](https://img.shields.io/badge/Number%20of%20players-3-red)
-![](https://img.shields.io/badge/Games%20completed-2-green)
+![](https://img.shields.io/badge/Games%20completed-3-green)
 
 This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!
 
@@ -17,7 +17,7 @@ This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!
 
 Direction of sowing is **counter-clockwise** (top goes to the left, bottom goes to the right).
 
-It's **top** team's turn! :muscle: Choose a hole to move.
+The game is over! :grin: Click here to start a <a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cnew&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title%20to%20start%20a%20new%20game.">new game</a>.
 
 <table>
 <thead>
@@ -28,9 +28,9 @@ It's **top** team's turn! :muscle: Choose a hole to move.
 </tr>
 </thead>
 <tbody>
-<tr><td rowspan=2>56</td>
+<tr><td rowspan=2>57</td>
 
-<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Ctop%7C6&&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
+<td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -55,12 +55,13 @@ It's **top** team's turn! :muscle: Choose a hole to move.
 
 |Username|Side|Hole Index|
 |-|-|-|
+|[@cbebe](https://github.com/cbebe)|top|6|
 |[@cbebe](https://github.com/cbebe)|top|5|
 |[@hugh-jazz](https://github.com/hugh-jazz)|bot|6|
-|[@hugh-jazz](https://github.com/hugh-jazz)|top|4|
 
 **Most Recent Games**
 
 |Top Score|Bottom Score|Turns Played|
 |-|-|-|
+|57|41|11|
 |61|37|69|
