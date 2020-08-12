@@ -1,33 +1,5 @@
-import { BoardMove, equalBoards, newGame } from "../src/move";
-import { Board, Side } from "../src/interfaces";
-
-const board = (
-  top: number[],
-  bot: number[],
-  currentTurn: Side | "draw",
-  scores: [number, number] = [0, 0],
-  turnsPlayed = 0,
-  gameOver = false
-): Board => {
-  return {
-    currentTurn,
-    top,
-    bot,
-    scores: { top: scores[0], bot: scores[1] },
-    gameOver,
-    turnsPlayed,
-  };
-};
-
-const newArr = () => [7, 7, 7, 7, 7, 7, 7];
-const empty = () => [0, 0, 0, 0, 0, 0, 0];
-
-// when there's only one pit with shells on the row
-const onePit = (i: number, shells = 1) => {
-  const arr = empty();
-  arr[i] = shells;
-  return arr;
-};
+import { BoardMove, newGame } from "../src/move";
+import { equalBoards, board, onePit, empty, newArr } from "./board";
 
 test("Avalanche mechanic on own side", () => {
   const bot = [1, 0, 1, 1, 1, 1, 1];

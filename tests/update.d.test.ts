@@ -4,17 +4,9 @@ import {
   updateAfterTurn,
   updateMostRecentMoves,
 } from "../src/update";
-import { Data, MoveObject, Board } from "../src/interfaces";
 
-const zeroGames = {
-  totalGames: 0,
-  wins: {
-    top: 0,
-    bot: 0,
-    draw: 0,
-  },
-  totalMoves: 0,
-};
+import { Data, MoveObject, Board } from "../src/interfaces";
+import { emptyData } from "./board";
 
 test("Check if function creates players", () => {
   const input = { boi: 1 };
@@ -29,12 +21,7 @@ test("Check if function updates player move count", () => {
 });
 
 test("Updating data after game", () => {
-  const input: Data = {
-    players: {},
-    ...zeroGames,
-    mostRecentMoves: [],
-    mostRecentGames: [],
-  };
+  const input: Data = emptyData();
   const expected: Data = {
     players: {},
     totalGames: 1,
@@ -63,12 +50,8 @@ test("Updating data after game", () => {
 });
 
 test("Updating data after turn", () => {
-  const input: Data = {
-    players: {},
-    ...zeroGames,
-    mostRecentMoves: [],
-    mostRecentGames: [],
-  };
+  const input: Data = emptyData();
+  const user: MoveObject = { name: "cbebe", side: "top", idx: 0 };
   const expected: Data = {
     players: { cbebe: 1 },
     totalGames: 0,
@@ -78,10 +61,10 @@ test("Updating data after turn", () => {
       draw: 0,
     },
     totalMoves: 1,
-    mostRecentMoves: [{ name: "cbebe", side: "top", idx: 0 }],
+    mostRecentMoves: [user],
     mostRecentGames: [],
   };
-  const output: Data = updateAfterTurn(input, "cbebe", "top", 0);
+  const output: Data = updateAfterTurn(input, user);
   expect(output.toString()).toBe(expected.toString());
 });
 
