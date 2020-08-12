@@ -1,16 +1,4 @@
-function compareNumArrays(arr1, arr2) {
-    if (arr1.length !== arr2.length)
-        return false;
-    return arr1.every((num, idx) => num === arr2[idx]);
-}
-export const equalBoards = (b1, b2) => !(!compareNumArrays(b1.top, b2.top) ||
-    !compareNumArrays(b1.bot, b2.bot) ||
-    b1.currentTurn !== b2.currentTurn ||
-    b1.scores.top !== b2.scores.top ||
-    b1.scores.bot !== b2.scores.bot ||
-    b1.gameOver !== b2.gameOver ||
-    b1.turnsPlayed !== b2.turnsPlayed);
-const getOtherSide = (currentSide) => currentSide === "top" ? "bot" : "top";
+export const getOtherSide = (side) => (side === "top" ? "bot" : "top");
 const hasMoves = (board, side) => board[side].some(hole => hole > 0);
 const newBoard = {
     currentTurn: "top",
@@ -57,7 +45,6 @@ export class BoardMove {
         const otherSide = getOtherSide(this.side);
         let shellCount = shells;
         for (let i = startingIdx; shellCount && i < 7; ++i) {
-            // last shell mechanics
             const lastShell = shellCount === 1;
             const nextPitEmpty = !this.board[currentSide][i];
             const otherPitEmpty = !this.board[otherSide][6 - i];
@@ -93,4 +80,39 @@ export class BoardMove {
         }
         return this.board;
     }
+}
+const getRandomIdx = (arr) => Math.floor(Math.random() * arr.length);
+const randomMove = (moves) => moves[getRandomIdx(moves)];
+function getPossibleMoves(row) {
+    const moves = [];
+    const wor = row.reverse();
+    wor.forEach((num, i) => {
+        if (num)
+            moves.push(i);
+    });
+    return moves;
+}
+function chooseMove({ board, side }) {
+    const thisRow = board[side];
+    const possibleMoves = getPossibleMoves(thisRow);
+    for (let idx of possibleMoves)
+        if (thisRow[idx] + idx === 7)
+            return idx;
+    return randomMove(possibleMoves);
+}
+export function makeAIMove(board) {
+    if (board.gameOver)
+        return board;
+    const currentSide = board.currentTurn;
+    const boardMove = new BoardMove(board, currentSide);
+    let counter = 0;
+    let isTurn = boardMove.board.currentTurn === currentSide;
+    while (isTurn && !boardMove.board.gameOver) {
+        const holeIdx = chooseMove(boardMove);
+        boardMove.makeMove(holeIdx);
+        console.log({ counter, board: boardMove.board });
+        isTurn = boardMove.board.currentTurn === currentSide;
+        counter++;
+    }
+    return boardMove.board;
 }

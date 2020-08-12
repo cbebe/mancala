@@ -1,23 +1,5 @@
 import { Board, Scores, Side } from "./interfaces";
-
-function compareNumArrays(arr1: number[], arr2: number[]) {
-  if (arr1.length !== arr2.length) return false;
-  return arr1.every((num, idx) => num === arr2[idx]);
-}
-
-export const equalBoards = (b1: Board, b2: Board) =>
-  !(
-    !compareNumArrays(b1.top, b2.top) ||
-    !compareNumArrays(b1.bot, b2.bot) ||
-    b1.currentTurn !== b2.currentTurn ||
-    b1.scores.top !== b2.scores.top ||
-    b1.scores.bot !== b2.scores.bot ||
-    b1.gameOver !== b2.gameOver ||
-    b1.turnsPlayed !== b2.turnsPlayed
-  );
-
-const getOtherSide = (currentSide: Side) =>
-  currentSide === "top" ? "bot" : "top";
+export const getOtherSide = (side: Side) => (side === "top" ? "bot" : "top");
 
 const hasMoves = (board: Board, side: Side) =>
   board[side].some(hole => hole > 0);
@@ -119,4 +101,52 @@ export class BoardMove {
 
     return this.board;
   }
+}
+
+// AI stuff
+
+const getRandomIdx = (arr: number[]) => Math.floor(Math.random() * arr.length);
+
+const randomMove = (moves: number[]) => moves[getRandomIdx(moves)];
+
+function getPossibleMoves(row: number[]) {
+  const moves: number[] = [];
+  const wor = row.reverse();
+  wor.forEach((num, i) => {
+    if (num) moves.push(i);
+  });
+  return moves;
+}
+
+function chooseMove({ board, side }: BoardMove) {
+  const thisRow = board[side];
+  /*
+  TO-DO: try to enforce capturing first before trying to make a random move
+  const otherSide = getOtherSide(side);
+  const otherRow = board[otherSide];
+  */
+
+  const possibleMoves = getPossibleMoves(thisRow);
+
+  // guarantees an extra turn
+  for (let idx of possibleMoves) if (thisRow[idx] + idx === 7) return idx;
+
+  // last resort
+  return randomMove(possibleMoves);
+}
+
+export function makeAIMove(board: Board) {
+  if (board.gameOver) return board;
+  // currentSide will never be draw
+  const currentSide = <Side>board.currentTurn;
+  const boardMove = new BoardMove(board, currentSide);
+
+  let isTurn = boardMove.board.currentTurn === currentSide;
+  while (isTurn && !boardMove.board.gameOver) {
+    const holeIdx = chooseMove(boardMove);
+    boardMove.makeMove(holeIdx);
+    isTurn = boardMove.board.currentTurn === currentSide;
+  }
+
+  return boardMove.board;
 }

@@ -1,4 +1,4 @@
-import { BoardMove, newGame } from "../src/move";
+import { BoardMove, newGame, makeAIMove } from "../src/move";
 import { equalBoards, board, onePit, empty, newArr } from "./board";
 
 test("Avalanche mechanic on own side", () => {
@@ -89,3 +89,22 @@ test("Increment turns played", () => {
   const o = b.makeMove(1);
   expect(equalBoards(o, e)).toBe(true);
 });
+
+// AI stuff
+
+test("Make AI end game", () => {
+  const i = board(onePit(5), empty(), "top");
+  const o = makeAIMove(i);
+  const e = board(empty(), empty(), "top", [1, 0], 1, true);
+  expect(equalBoards(o, e)).toBe(true);
+});
+
+/*
+test("Perfect combo", async () => {
+  const i = board([7, 6, 5, 4, 3, 2, 1], onePit(6), "top");
+  const o = makeAIMove(i);
+  const e = board(empty(), onePit(6), "bot", [28, 0], 28);
+  console.log({ o, e });
+  expect(equalBoards(o, e)).toBe(true);
+}, 3000);
+*/
