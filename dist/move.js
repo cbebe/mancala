@@ -105,14 +105,11 @@ export function makeAIMove(board) {
         return board;
     const currentSide = board.currentTurn;
     const boardMove = new BoardMove(board, currentSide);
-    let counter = 0;
     let isTurn = boardMove.board.currentTurn === currentSide;
     while (isTurn && !boardMove.board.gameOver) {
         const holeIdx = chooseMove(boardMove);
         boardMove.makeMove(holeIdx);
-        console.log({ counter, board: boardMove.board });
         isTurn = boardMove.board.currentTurn === currentSide;
-        counter++;
     }
     return boardMove.board;
 }

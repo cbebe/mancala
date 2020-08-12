@@ -1,6 +1,6 @@
 import jsonfile from "jsonfile";
 import fs from "fs";
-import { BoardMove, newGame } from "./move.js";
+import { BoardMove, newGame, makeAIMove } from "./move.js";
 import { createReadme } from "./write.js";
 import { updateAfterTurn, updateAfterGame } from "./update.js";
 const recordFile = "./record.json";
@@ -12,26 +12,28 @@ function writeToFiles(record) {
     });
     fs.writeFileSync("./README.md", createReadme(record));
 }
-// Main script
 function parseMove({ data, board }) {
     const username = process.env.EVENT_USER_LOGIN || "cbebe";
-    const args = getArgs(process.argv[2] || "sungka|new");
+    const args = getArgs(process.argv[2] || "sungka|ai");
     const restartGame = args[0] === "new";
     const aiMove = args[0] === "ai";
-    let newBoard, moveBoard;
+    let newBoard, aiSide;
     if (restartGame) {
         newBoard = newGame(board);
     }
     else if (aiMove) {
+        aiSide = board.currentTurn;
+        newBoard = makeAIMove(board);
     }
     else {
-        moveBoard = new BoardMove(board, args[0]);
-        moveBoard.makeMove(Number(args[1]));
-        newBoard = moveBoard.board;
+        newBoard = new BoardMove(board, args[0]).makeMove(Number(args[1]));
     }
     let newData = Object.assign({}, data);
     if (!restartGame) {
-        newData = updateAfterTurn(newData, username, args[0], Number(args[1]));
+        const move = aiMove
+            ? { side: aiSide, idx: -1 }
+            : { side: args[0], idx: Number(args[1]) };
+        newData = updateAfterTurn(newData, Object.assign({ name: username }, move));
         if (newBoard.gameOver)
             newData = updateAfterGame(newData, newBoard);
     }

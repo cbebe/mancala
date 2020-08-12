@@ -15,11 +15,15 @@ const parseStats = (data) => [
 const createBadgeLink = (text, number, colour) => `![](https://img.shields.io/badge/${text}-${number}-${colour})`;
 function createMoveLink(pos, side, score) {
     const text = createHTTPText(instruction + pleaseWait);
-    return createIssueLink(`sungka%7C${side}%7C${pos}&`, text, String(score));
+    return createIssueLink(`sungka%7C${side}%7C${pos}`, text, String(score));
+}
+function createAILink() {
+    const text = createHTTPText(instruction + " to let the AI play for a turn.");
+    return createIssueLink("sungka%7Cai", text, "computer make a move");
 }
 function createNewGameLink() {
     const text = createHTTPText(instruction + " to start a new game.");
-    return createIssueLink("sungka%7Cnew&", text, "new game");
+    return createIssueLink("sungka%7Cnew", text, "new game");
 }
 function createRow(board, side) {
     const isTurn = side === board.currentTurn;
@@ -44,12 +48,18 @@ function createTable(board) {
     const botRow = createRow(board, "bot");
     return [tableHead, topScore, topRow, botScore, botRow, tableTail].join("\n");
 }
+function createMoveRow({ name, side, idx }) {
+    const ai = idx < 0;
+    const link = createUserLink(name);
+    const player = ai ? `AI :robot: (${link})` : link;
+    return `|${player}|${side}|${ai ? "--" : idx}|`;
+}
 function createRecentMoves(mostRecentMoves) {
-    if (mostRecentMoves.length === 0)
+    if (!mostRecentMoves.length)
         return "";
     const heading = "**Most Recent Moves**\n";
     const tableHead = "|Username|Side|Hole Index|\n|-|-|-|";
-    const tableBody = mostRecentMoves.map(({ name, side, idx }) => `|${createUserLink(name)}|${side}|${idx}|`);
+    const tableBody = mostRecentMoves.map(move => createMoveRow(move));
     return [heading, tableHead, ...tableBody].join("\n");
 }
 const createStatBadges = (data) => {
@@ -73,7 +83,7 @@ export function createReadme({ board, data }) {
     const rulesLink = "**Click on one of the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
     const turnString = board.gameOver
         ? `The game is over! :grin: Click here to start a ${createNewGameLink()}.`
-        : `It's **${board.currentTurn === "top" ? "top" : "bottom"}** team's turn! :muscle: Choose a hole to move.`;
+        : `It's **${board.currentTurn === "top" ? "top" : "bottom"}** team's turn! :muscle: Choose a hole to move. Click here to let the **${createAILink()}**`;
     const description = [
         "I am a student currently working on stuff I find fun :octopus:",
         "Looking for Co-op/internships for **January-August 2021** :briefcase:",

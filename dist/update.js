@@ -9,12 +9,12 @@ export function updateMostRecentMoves(moveArray, moveObj) {
     moveArray.unshift(moveObj);
     return moveArray.slice(0, 3);
 }
-export function updateAfterTurn(data, currentPlayer, side, idx) {
-    data.players = updatePlayers(data.players, currentPlayer);
-    ++data.totalMoves;
-    const move = { name: currentPlayer, side, idx };
-    data.mostRecentMoves = updateMostRecentMoves(data.mostRecentMoves, move);
-    return data;
+export function updateAfterTurn(data, move) {
+    let newData = Object.assign({}, data);
+    newData.players = updatePlayers(newData.players, move.name);
+    ++newData.totalMoves;
+    newData.mostRecentMoves = updateMostRecentMoves(newData.mostRecentMoves, move);
+    return newData;
 }
 export function updateMostRecentGames(mostRecentGames, board) {
     const gameRecord = {
