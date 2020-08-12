@@ -115,7 +115,7 @@ export function createReadme({ board, data }: Record) {
     ? `The game is over! :grin: Click here to start a ${createNewGameLink()}.`
     : `It's **${
         board.currentTurn === "top" ? "top" : "bottom"
-      }** team's turn! :muscle: Choose a hole to move. Click here to let the **${createAILink()}**`;
+      }** team's turn! :muscle: Choose a hole to move. ${createAILink()} to **let the computer make a move**.`;
 
   const description = [
     "I am a student currently working on stuff I find fun :octopus:",
