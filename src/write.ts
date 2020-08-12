@@ -31,7 +31,7 @@ function createMoveLink(pos: number, side: "top" | "bot", score: number) {
 
 function createAILink() {
   const text = createHTTPText(instruction + " to let the AI play for a turn.");
-  return createIssueLink("sungka%7Cai", text, "computer make a move");
+  return createIssueLink("sungka%7Cai", text, "Click here");
 }
 
 function createNewGameLink() {

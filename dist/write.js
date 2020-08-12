@@ -19,7 +19,7 @@ function createMoveLink(pos, side, score) {
 }
 function createAILink() {
     const text = createHTTPText(instruction + " to let the AI play for a turn.");
-    return createIssueLink("sungka%7Cai", text, "computer make a move");
+    return createIssueLink("sungka%7Cai", text, "Click here");
 }
 function createNewGameLink() {
     const text = createHTTPText(instruction + " to start a new game.");
