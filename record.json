@@ -1,7 +1,7 @@
 {
   "data": {
     "players": {
-      "cbebe": 80,
+      "cbebe": 81,
       "hughjanusonly": 7,
       "hugh-jazz": 40
     },
@@ -11,7 +11,7 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 131,
+    "totalMoves": 132,
     "mostRecentMoves": [
       {
         "name": "cbebe",
@@ -21,12 +21,12 @@
       {
         "name": "cbebe",
         "side": "bot",
-        "idx": 6
+        "idx": 1
       },
       {
         "name": "cbebe",
         "side": "bot",
-        "idx": 4
+        "idx": 6
       }
     ],
     "mostRecentGames": [
