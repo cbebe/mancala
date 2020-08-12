@@ -17,7 +17,7 @@ This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!
 
 Direction of sowing is **counter-clockwise** (top goes to the left, bottom goes to the right).
 
-It's **top** team's turn! :muscle: Choose a hole to move. <a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cai&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title%20to%20let%20the%20AI%20play%20for%20a%20turn.">computer make a move</a> to **let the computer make a move**.
+It's **top** team's turn! :muscle: Choose a hole to move. <a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cai&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title%20to%20let%20the%20AI%20play%20for%20a%20turn.">Click here</a> to **let the computer make a move**.
 
 <table>
 <thead>
