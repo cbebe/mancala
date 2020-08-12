@@ -26,12 +26,17 @@ const createBadgeLink = (text: string, number: number, colour: string) =>
 
 function createMoveLink(pos: number, side: "top" | "bot", score: number) {
   const text = createHTTPText(instruction + pleaseWait);
-  return createIssueLink(`sungka%7C${side}%7C${pos}&`, text, String(score));
+  return createIssueLink(`sungka%7C${side}%7C${pos}`, text, String(score));
+}
+
+function createAILink() {
+  const text = createHTTPText(instruction + " to let the AI play for a turn.");
+  return createIssueLink("sungka%7Cai", text, "computer make a move");
 }
 
 function createNewGameLink() {
   const text = createHTTPText(instruction + " to start a new game.");
-  return createIssueLink("sungka%7Cnew&", text, "new game");
+  return createIssueLink("sungka%7Cnew", text, "new game");
 }
 
 function createRow(board: Board, side: "top" | "bot") {
@@ -63,14 +68,19 @@ function createTable(board: Board) {
   return [tableHead, topScore, topRow, botScore, botRow, tableTail].join("\n");
 }
 
+function createMoveRow({ name, side, idx }: MoveObject) {
+  const ai = idx < 0;
+  const link = createUserLink(name);
+  const player = ai ? `AI :robot: (${link})` : link;
+  return `|${player}|${side}|${ai ? "--" : idx}|`;
+}
+
 function createRecentMoves(mostRecentMoves: MoveObject[]) {
-  if (mostRecentMoves.length === 0) return "";
+  if (!mostRecentMoves.length) return "";
 
   const heading = "**Most Recent Moves**\n";
   const tableHead = "|Username|Side|Hole Index|\n|-|-|-|";
-  const tableBody = mostRecentMoves.map(
-    ({ name, side, idx }) => `|${createUserLink(name)}|${side}|${idx}|`
-  );
+  const tableBody = mostRecentMoves.map(move => createMoveRow(move));
 
   return [heading, tableHead, ...tableBody].join("\n");
 }
@@ -105,7 +115,7 @@ export function createReadme({ board, data }: Record) {
     ? `The game is over! :grin: Click here to start a ${createNewGameLink()}.`
     : `It's **${
         board.currentTurn === "top" ? "top" : "bottom"
-      }** team's turn! :muscle: Choose a hole to move.`;
+      }** team's turn! :muscle: Choose a hole to move. Click here to let the **${createAILink()}**`;
 
   const description = [
     "I am a student currently working on stuff I find fun :octopus:",
