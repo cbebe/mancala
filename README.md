@@ -7,7 +7,7 @@ Looking for Co-op/internships for **January-August 2021** :briefcase:
 
 ![](https://github.com/cbebe/cbebe/blob/master/sungka.png)
 
-![](https://img.shields.io/badge/Total%20moves%20played-152-blue)
+![](https://img.shields.io/badge/Total%20moves%20played-153-blue)
 ![](https://img.shields.io/badge/Number%20of%20players-4-red)
 ![](https://img.shields.io/badge/Games%20completed-3-green)
 
@@ -17,7 +17,7 @@ This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!
 
 Direction of sowing is **counter-clockwise** (top goes to the left, bottom goes to the right).
 
-It's **top** team's turn! :muscle: Choose a hole to move. <a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cai&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title%20to%20let%20the%20AI%20play%20for%20a%20turn.">Click here</a> to **let the computer make a move**.
+It's **bottom** team's turn! :muscle: Choose a hole to move. <a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cai&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title%20to%20let%20the%20AI%20play%20for%20a%20turn.">Click here</a> to **let the computer make a move**.
 
 <table>
 <thead>
@@ -28,9 +28,9 @@ It's **top** team's turn! :muscle: Choose a hole to move. <a href="https://githu
 </tr>
 </thead>
 <tbody>
-<tr><td rowspan=2>49</td>
+<tr><td rowspan=2>50</td>
 
-<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Ctop%7C6&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">3</a></td>
+<td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -40,13 +40,13 @@ It's **top** team's turn! :muscle: Choose a hole to move. <a href="https://githu
 <td rowspan=2>38</td>
 </tr>
 <tr>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C0&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C1&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C2&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
 <td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>5</td>
-<td>1</td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C4&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C5&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">5</a></td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C6&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
 </tr>
 <tbody>
 </table>
@@ -55,9 +55,9 @@ It's **top** team's turn! :muscle: Choose a hole to move. <a href="https://githu
 
 |Username|Side|Hole Index|
 |-|-|-|
+|[@cbebe](https://github.com/cbebe)|top|6|
 |[@cbebe](https://github.com/cbebe)|top|4|
 |AI :robot: ([@JRetza](https://github.com/JRetza))|bot|--|
-|[@cbebe](https://github.com/cbebe)|bot|6|
 
 **Most Recent Games**
 
