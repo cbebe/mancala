@@ -1,7 +1,7 @@
 {
   "data": {
     "players": {
-      "cbebe": 98,
+      "cbebe": 99,
       "hughjanusonly": 7,
       "hugh-jazz": 40,
       "JRetza": 5
@@ -12,8 +12,13 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 154,
+    "totalMoves": 155,
     "mostRecentMoves": [
+      {
+        "name": "cbebe",
+        "side": "top",
+        "idx": -1
+      },
       {
         "name": "JRetza",
         "side": "bot",
@@ -23,11 +28,6 @@
         "name": "cbebe",
         "side": "top",
         "idx": 6
-      },
-      {
-        "name": "cbebe",
-        "side": "top",
-        "idx": 4
       }
     ],
     "mostRecentGames": [
@@ -48,19 +48,19 @@
     ]
   },
   "board": {
-    "currentTurn": "top",
+    "currentTurn": "bot",
     "top": [
-      1,
-      1,
-      1,
+      0,
       1,
       0,
+      0,
+      1,
       0,
       0
     ],
     "bot": [
       0,
-      1,
+      0,
       0,
       0,
       1,
@@ -68,10 +68,10 @@
       1
     ],
     "scores": {
-      "top": 50,
+      "top": 53,
       "bot": 41
     },
     "gameOver": false,
-    "turnsPlayed": 16
+    "turnsPlayed": 17
   }
 }
