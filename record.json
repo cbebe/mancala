@@ -5,7 +5,7 @@
       "hughjanusonly": 7,
       "hugh-jazz": 40,
       "JRetza": 5,
-      "thedoodler": 2
+      "thedoodler": 3
     },
     "totalGames": 3,
     "wins": {
@@ -13,8 +13,13 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 157,
+    "totalMoves": 158,
     "mostRecentMoves": [
+      {
+        "name": "thedoodler",
+        "side": "bot",
+        "idx": 6
+      },
       {
         "name": "thedoodler",
         "side": "top",
@@ -24,11 +29,6 @@
         "name": "thedoodler",
         "side": "bot",
         "idx": 4
-      },
-      {
-        "name": "cbebe",
-        "side": "top",
-        "idx": -1
       }
     ],
     "mostRecentGames": [
@@ -49,7 +49,7 @@
     ]
   },
   "board": {
-    "currentTurn": "bot",
+    "currentTurn": "top",
     "top": [
       0,
       0,
@@ -66,13 +66,13 @@
       0,
       0,
       0,
-      1
+      0
     ],
     "scores": {
       "top": 53,
-      "bot": 43
+      "bot": 44
     },
     "gameOver": false,
-    "turnsPlayed": 19
+    "turnsPlayed": 20
   }
 }
