@@ -5,7 +5,7 @@
       "hughjanusonly": 7,
       "hugh-jazz": 40,
       "JRetza": 5,
-      "thedoodler": 3
+      "thedoodler": 4
     },
     "totalGames": 3,
     "wins": {
@@ -13,8 +13,13 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 158,
+    "totalMoves": 159,
     "mostRecentMoves": [
+      {
+        "name": "thedoodler",
+        "side": "bot",
+        "idx": 6
+      },
       {
         "name": "thedoodler",
         "side": "bot",
@@ -24,11 +29,6 @@
         "name": "thedoodler",
         "side": "top",
         "idx": -1
-      },
-      {
-        "name": "thedoodler",
-        "side": "bot",
-        "idx": 4
       }
     ],
     "mostRecentGames": [

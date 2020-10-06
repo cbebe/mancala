@@ -7,7 +7,7 @@ Looking for Co-op/internships for **January-August 2021** :briefcase:
 
 ![](https://github.com/cbebe/cbebe/blob/master/sungka.png)
 
-![](https://img.shields.io/badge/Total%20moves%20played-158-blue)
+![](https://img.shields.io/badge/Total%20moves%20played-159-blue)
 ![](https://img.shields.io/badge/Number%20of%20players-5-red)
 ![](https://img.shields.io/badge/Games%20completed-3-green)
 
@@ -56,8 +56,8 @@ It's **top** team's turn! :muscle: Choose a hole to move. <a href="https://githu
 |Username|Side|Hole Index|
 |-|-|-|
 |[@thedoodler](https://github.com/thedoodler)|bot|6|
+|[@thedoodler](https://github.com/thedoodler)|bot|6|
 |AI :robot: ([@thedoodler](https://github.com/thedoodler))|top|--|
-|[@thedoodler](https://github.com/thedoodler)|bot|4|
 
 **Most Recent Games**
 
