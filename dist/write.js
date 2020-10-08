@@ -51,7 +51,7 @@ function createTable(board) {
 function createMoveRow({ name, side, idx }) {
     const ai = idx < 0;
     const link = createUserLink(name);
-    const player = ai ? `AI :robot: (${link})` : link;
+    const player = ai ? `AI (${link})` : link;
     return `|${player}|${side}|${ai ? "--" : idx}|`;
 }
 function createRecentMoves(mostRecentMoves) {
@@ -82,19 +82,19 @@ export function createRecentGames(mostRecentGames) {
 export function createReadme({ board, data }) {
     const rulesLink = "**Click on one of the holes** in the board to make a move. If you're not familiar with the game, click here for the [rules](https://mancala.fandom.com/wiki/Sungka#Rules).";
     const turnString = board.gameOver
-        ? `The game is over! :grin: Click here to start a ${createNewGameLink()}.`
-        : `It's **${board.currentTurn === "top" ? "top" : "bottom"}** team's turn! :muscle: Choose a hole to move. ${createAILink()} to **let the computer make a move**.`;
+        ? `The game is over! Click here to start a ${createNewGameLink()}.`
+        : `It's **${board.currentTurn === "top" ? "top" : "bottom"}** team's turn! Choose a hole to move. ${createAILink()} to **let the computer make a move**.`;
     const description = [
-        "I am a student currently working on stuff I find fun :octopus:",
-        "Looking for Co-op/internships for **January-August 2021** :briefcase:",
+        "I am a student currently working on stuff I find fun",
+        "Looking for Co-op/internships for **January-August 2021**",
     ].join("  \n");
     return [
-        "# Hi, I'm Charles :v:",
+        "# Hi, I'm Charles",
         description,
-        "## :shell: Charles's community Mancala game",
+        "## Charles's community Mancala game",
         `![](${github}cbebe/cbebe/blob/master/sungka.png)`,
         createStatBadges(data),
-        "This is Sungka, a Philippine mancala game. :wave: Anyone is free to participate!",
+        "This is Sungka, a Philippine mancala game. Anyone is free to participate!",
         rulesLink,
         "Direction of sowing is **counter-clockwise** (top goes to the left, bottom goes to the right).",
         turnString,
