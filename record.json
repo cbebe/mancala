@@ -14,23 +14,7 @@
       "draw": 0
     },
     "totalMoves": 163,
-    "mostRecentMoves": [
-      {
-        "name": "JRetza",
-        "side": "top",
-        "idx": 6
-      },
-      {
-        "name": "cbebe",
-        "side": "top",
-        "idx": 5
-      },
-      {
-        "name": "cbebe",
-        "side": "top",
-        "idx": 4
-      }
-    ],
+    "mostRecentMoves": [],
     "mostRecentGames": [
       {
         "scores": {
@@ -58,28 +42,28 @@
   "board": {
     "currentTurn": "top",
     "top": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
     ],
     "bot": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
     ],
     "scores": {
-      "top": 54,
-      "bot": 44
+      "top": 0,
+      "bot": 0
     },
-    "gameOver": true,
-    "turnsPlayed": 21
+    "gameOver": false,
+    "turnsPlayed": 0
   }
 }
