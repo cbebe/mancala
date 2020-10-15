@@ -7,8 +7,8 @@ Looking for Co-op/internships for **January-August 2021**
 
 ![](https://github.com/cbebe/cbebe/blob/master/sungka.png)
 
-![](https://img.shields.io/badge/Total%20moves%20played-164-blue)
-![](https://img.shields.io/badge/Number%20of%20players-5-red)
+![](https://img.shields.io/badge/Total%20moves%20played-165-blue)
+![](https://img.shields.io/badge/Number%20of%20players-6-red)
 ![](https://img.shields.io/badge/Games%20completed-4-green)
 
 This is Sungka, a Philippine mancala game. Anyone is free to participate!
@@ -17,7 +17,7 @@ This is Sungka, a Philippine mancala game. Anyone is free to participate!
 
 Direction of sowing is **counter-clockwise** (top goes to the left, bottom goes to the right).
 
-It's **bottom** team's turn! Choose a hole to move. <a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cai&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title%20to%20let%20the%20AI%20play%20for%20a%20turn.">Click here</a> to **let the computer make a move**.
+It's **top** team's turn! Choose a hole to move. <a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cai&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title%20to%20let%20the%20AI%20play%20for%20a%20turn.">Click here</a> to **let the computer make a move**.
 
 <table>
 <thead>
@@ -30,23 +30,23 @@ It's **bottom** team's turn! Choose a hole to move. <a href="https://github.com/
 <tbody>
 <tr><td rowspan=2>10</td>
 
-<td>2</td>
-<td>6</td>
-<td>2</td>
-<td>5</td>
-<td>3</td>
-<td>2</td>
-<td>4</td>
-<td rowspan=2>0</td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Ctop%7C6&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">3</a></td>
+<td>0</td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Ctop%7C4&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">3</a></td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Ctop%7C3&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">6</a></td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Ctop%7C2&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">4</a></td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Ctop%7C1&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">3</a></td>
+<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Ctop%7C0&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
+<td rowspan=2>2</td>
 </tr>
 <tr>
-<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C0&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">8</a></td>
-<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C1&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">16</a></td>
-<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C2&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">16</a></td>
-<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C3&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">7</a></td>
-<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C4&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
-<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C5&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">1</a></td>
-<td><a href="https://github.com/cbebe/cbebe/issues/new?title=sungka%7Cbot%7C6&body=Just%20push%20%27Submit%20new%20issue%27%20without%20changing%20the%20title.%20Please%20wait%2030%20seconds%20to%20check%20if%20you%20have%20an%20extra%20move%20or%20let%20someone%20else%20play%20the%20turn.">15</a></td>
+<td>1</td>
+<td>18</td>
+<td>18</td>
+<td>9</td>
+<td>3</td>
+<td>0</td>
+<td>17</td>
 </tr>
 <tbody>
 </table>
@@ -55,6 +55,7 @@ It's **bottom** team's turn! Choose a hole to move. <a href="https://github.com/
 
 |Username|Side|Hole Index|
 |-|-|-|
+|[@minji-o-j](https://github.com/minji-o-j)|bot|0|
 |AI ([@JRetza](https://github.com/JRetza))|top|--|
 
 **Most Recent Games**
