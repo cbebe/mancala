@@ -1,7 +1,7 @@
 {
   "data": {
     "players": {
-      "cbebe": 102,
+      "cbebe": 103,
       "hughjanusonly": 7,
       "hugh-jazz": 40,
       "JRetza": 7,
@@ -14,8 +14,13 @@
       "bot": 0,
       "draw": 0
     },
-    "totalMoves": 165,
+    "totalMoves": 166,
     "mostRecentMoves": [
+      {
+        "name": "cbebe",
+        "side": "top",
+        "idx": 4
+      },
       {
         "name": "minji-o-j",
         "side": "bot",
@@ -58,9 +63,9 @@
       3,
       4,
       6,
-      3,
       0,
-      3
+      1,
+      4
     ],
     "bot": [
       1,
@@ -72,7 +77,7 @@
       17
     ],
     "scores": {
-      "top": 10,
+      "top": 11,
       "bot": 2
     },
     "gameOver": false,
