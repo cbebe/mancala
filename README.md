@@ -1,8 +1,5 @@
 # Hi, I'm Charles
 
-I am a student currently working on stuff I find fun  
-Looking for Co-op/internships for **January-August 2021**
-
 ## Charles's community Mancala game
 
 ![](https://github.com/cbebe/cbebe/blob/master/sungka.png)
