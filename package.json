@@ -30,7 +30,7 @@
     "eslint-plugin-github": "^4.1.1",
     "jest": "^26.2.2",
     "ts-jest": "^26.1.4",
-    "ts-loader": "^8.0.2",
+    "ts-loader": "^8.4.0",
     "typescript": "^3.9.7"
   },
   "jest": {
